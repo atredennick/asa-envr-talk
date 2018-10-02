@@ -11,119 +11,37 @@ $\phantom{testtesttt}$ Peter Adler (USU) \hspace{7em} Mevin Hooten (CSU)
 
 $\phantom{testtest}$ \roundpicture{images/peter.jpg}{} \hspace{5em} \roundpicture{images/mevin.jpg}{}
 
-<!-- \begincols
-
-\hspace{2em}\column{0.5\textwidth}
-
-Peter Adler (USU)
-\roundpicture{images/peter.jpg}{}
-
-\hfill\column{0.5\textwidth}
-
-Mevin Hooten (CSU)
-\roundpicture{images/mevin.jpg}{}
-
-\stopcols -->
-
-
-##	Rapid environmental change
-
-\includegraphics[width=\textwidth]{./figures/mora_graphic.png}
-
-\credit{Mora et al., 2013, \emph{Nature}}
-
-##	It's been a long time coming
-
-\includegraphics[width=\textwidth]{./figures/clark_title.pdf}
-
-\credit{Clark et al., 2001, \emph{Science}}
-
-##	The time is now
-
-\includegraphics[width=\textwidth]{./figures/dietze_title.pdf}
-
-\credit{Dietze et al., 2018, \emph{PNAS}}
-
 ## Road map
 
-1. Do we need demographic data?
-2. Scaling up plant population forecasts
-3. Partitioning forecast uncertainty -- a new agenda for ecology
+1. Plant population forecasts over large spatial extents
+2. A plea (and a proposal) to partitioning forecast uncertainty 
 
 
+#   Plant population forecasts
 
-#	Do we need demographic data?
-
-##	What land managers want
+##   What land managers want
 
 \centering
 \includegraphics[height=2.7in]{./figures/managers_want.pdf}
 
-##	What land managers get
+##   What land managers get
 
 \centering
 \includegraphics[height=2.8in]{./figures/managers_get.pdf}
 
-##	Really hard work
+##   Really hard work
 
 \includegraphics[width=\textwidth]{./figures/chart_measuring.jpg}
 
-##   Aggregate population-level data
- 
-\includegraphics[width=\textwidth]{./figures/missing_climate.pdf}
 
-##   Objectives
-
-1. Determine if population-level data contains similar climate signal as individual-level data.
-2. Compare model accuracy and precision using out-of-sample validation.
-
-##   14-year time series from Montana
-
-\includegraphics[width=\textwidth]{./figures/mt_spp.png}
-
-##	Two types of models
-
-\centering
-\includegraphics[height=2.7in]{./figures/mee_flow.png}
-
-##	Integral projection model
-
-\centering
-\includegraphics[width=0.7\textwidth]{./figures/maps.pdf}
-
-\begin{align*}
-\text{survival}(t+1) &\phantom{=} \\
-\text{growth}(t+1) &= f\left(\text{size}(t),\text{location},\text{crowding}(t),\text{year}(t),\text{climate}(t) \right) \\
-\text{recruitment}(t+1) &\phantom{=} \\
-\end{align*}
-
-##	Qaudrat(cover)-based model
-
-\includegraphics[width=\textwidth]{./figures/montana_quad_ts.pdf}
-
-$$
-\text{cover}(t+1) = f\left(\text{cover}(t),\text{location},\text{year}(t),\text{climate}(t) \right)
-$$
-
-##	Climate covariates
-
-\includegraphics[width=\textwidth]{./figures/ipm_climate_effects.pdf}
-
-##	Climate effects by vital rates
-
-\centering
-\includegraphics[height=2.5in]{./figures/mee_climate_effects.pdf}
-
-\credit{Tredennick et al., 2017, \emph{Methods in Ecol. Evol.}}
-
-##   Model comparison
+##   Free from the tyranny of demographic data!
 
 \centering
 \includegraphics[height=2.5in]{./figures/mee_forecast_accuracy_empty.pdf}
 
 \credit{Tredennick et al., 2017, \emph{Methods in Ecol. Evol.}}
 
-##	Model comparison
+##	Free from the tyranny of demographic data!
 
 \centering
 \includegraphics[height=2.5in]{./figures/mee_forecast_accuracy.pdf}
@@ -142,7 +60,10 @@ $$
 \centering
 Maybe not.
 
-#	Scaling up plant population forecasts
+##   Let's use satellites
+
+\centering
+\includegraphics[height=2.7in]{./figures/landsat8.jpg}
 
 ##	Sagebrush sea in Wyoming
 
@@ -162,7 +83,7 @@ Maybe not.
 
 \begin{align*}
 y_{i,t} &\sim \text{Poisson}(\mu_{i,t}) \\
-\text{log}(\mu_{i,t}) &= \underbrace{\beta_{0,t} + \beta_{1}y_{i,t-1}}_\text{temporal + dens. dep} + \underbrace{\textbf{x}_{t}'\boldsymbol{\phi}}_\text{climate} + \underbrace{\eta_{i}}_\text{spatial}
+\text{log}(\mu_{i,t}) &= \underbrace{\beta_{0,t} + \beta_{1}y_{i,t-1}}_\text{temporal + dens. dep} + \underbrace{\textbf{x}_{t}'\boldsymbol{\gamma}}_\text{climate} + \underbrace{\eta_{i}}_\text{spatial}
 \end{align*}
 
 ##	Dimension reduction for spatial effect
@@ -171,12 +92,17 @@ y_{i,t} &\sim \text{Poisson}(\mu_{i,t}) \\
 
 ##	Dynamic cover model
 
+\small
+
 \begin{align*}
 y_{i,t} &\sim \text{Poisson}(\mu_{i,t}) \\
-\text{log}(\mu_{i,t}) &= \underbrace{\beta_{0,t} + \beta_{1}y_{i,t-1}}_\text{temporal + dens. dep} + \underbrace{\textbf{x}_{t}'\boldsymbol{\phi}}_\text{climate} + \underbrace{\eta_{i}}_\text{spatial} \\
+\text{log}(\mu_{i,t}) &= \underbrace{\beta_{0,t} + \beta_{1}y_{i,t-1}}_\text{temporal + dens. dep} + \underbrace{\textbf{x}_{t}'\boldsymbol{\gamma}}_\text{climate} + \underbrace{\eta_{i}}_\text{spatial} \\
 \boldsymbol{\eta} &\approx \textbf{K}\boldsymbol{\alpha}, \\
+\textbf{K} &= \mathbf{w}_{s,m} / \sum_{s=1}^S \mathbf{w}_{s,m} \\
+\mathbf{w}_{s,m} &= \text{exp}\left(-d_{s,m} / \sigma \right) \\
 \alpha_{m} &\sim \text{Normal}(0,\sigma_{\eta}^2)
 \end{align*}
+
 
 ##	Climate effects
 
@@ -210,174 +136,90 @@ y_{i,t} &\sim \text{Poisson}(\mu_{i,t}) \\
 
 \credit{Tredennick et al., 2016, \emph{Ecosphere}}
 
-#	Partitioning forecast uncertainty
 
-##	Forecast variance...to a first approximation
+# Partitioning forecast uncertainty
 
-$$
-y_{t+1} = f(y_t, x_t|\theta) + \epsilon_{t+1}
-$$
+## An (\emph{inverse}) error propagation problem
 
-##	Forecast variance...to a first approximation
-
-$$
-y_{t+1} = f(y_t, x_t|\theta) + \epsilon_{t+1}
-$$
-
-\small
-\begin{align*}
-Var[y_{t+1}] \approx \underbrace{\left(\frac{\delta f}{\delta y} \right)^2}_{\text{stability}} 
-               \underbrace{\vphantom{ \left(\frac{\delta f}{\delta y} \right)^2 } Var[y_t]}_{\text{IC uncert.}} +
-               \underbrace{\vphantom{ \left(\frac{\delta f}{\delta y} \right)^2 }\left(\frac{\delta f}{\delta x} \right)^2}_{\text{driver sens.}} 
-               \underbrace{\vphantom{ \left(\frac{\delta f}{\delta y} \right)^2 } Var[x_t]}_{\text{driver uncert.}} +
-               \underbrace{\vphantom{ \left(\frac{\delta f}{\delta y} \right)^2 }\left(\frac{\delta f}{\delta \theta} \right)^2}_{\text{param sens.}}
-               \underbrace{\vphantom{ \left(\frac{\delta f}{\delta y} \right)^2 } Var[\theta]}_{\text{param. uncert.}} +
-               \underbrace{\vphantom{ \left(\frac{\delta f}{\delta y} \right)^2 } Var[\epsilon]}_{\text{process error}}
-\end{align*}
-
-\credit{Dietze, 2017, \emph{Ecological Applications}; Cariboni et al., 2007, \emph{Ecological Modeling}}
-
-##	Forecast variance...to a first approximation
-
-\colorlet{shadecolor}{gray!40}
-
-$$
-\textcolor{shadecolor}{y_{t+1} = f(y_t, x_t|\theta) + \epsilon_{t+1}}
-$$
-
-\small
-\begin{align*}
-\textcolor{shadecolor}{Var[y_{t+1}] \approx \underbrace{\left(\frac{\delta f}{\delta y} \right)^2}_{\text{stability}} 
-               \underbrace{\vphantom{ \left(\frac{\delta f}{\delta y} \right)^2 } Var[y_t]}_{\text{IC uncert.}} +
-               \underbrace{\vphantom{ \left(\frac{\delta f}{\delta y} \right)^2 }\left(\frac{\delta f}{\delta x} \right)^2}_{\text{driver sens.}} 
-               \underbrace{\vphantom{ \left(\frac{\delta f}{\delta y} \right)^2 } Var[x_t]}_{\text{driver uncert.}} +
-               \underbrace{\vphantom{ \left(\frac{\delta f}{\delta y} \right)^2 }\left(\frac{\delta f}{\delta \theta} \right)^2}_{\text{param sens.}}
-               \underbrace{\vphantom{ \left(\frac{\delta f}{\delta y} \right)^2 } Var[\theta]}_{\text{param. uncert.}} +
-               \underbrace{\vphantom{ \left(\frac{\delta f}{\delta y} \right)^2 } Var[\epsilon]}_{\text{process error}}}
-\end{align*}
-
-\normalsize
-$$
-Var[y_{t+1}] \approx \text{Internal}+\text{External}+\text{Parameters}+\text{Process Error}
-$$
-
-\credit{Dietze, 2017, \emph{Ecological Applications}; Cariboni et al., 2007, \emph{Ecological Modeling}}
-
-
-##	This is why we have weather satellites
-
-\begincols
-\column{0.68\textwidth}
+For some function $q$: $q = f(x_1,x_2,\dots,x_n)$
 
 \begin{align*}
-Var[y_{t+1}] \approx \underbrace{\left(\frac{\delta f}{\delta y} \right)^2}_{\text{stability}} 
-               \underbrace{\vphantom{ \left(\frac{\delta f}{\delta y} \right)^2 } Var[y_t]}_{\text{IC uncert.}} 
+\sigma^2_q &= \left( \frac{\delta q}{\delta x_1} \sigma_{x_1} \right)^2 + \left( \frac{\delta q}{\delta x_2} \sigma_{x_2} \right)^2 + \cdots + \left( \frac{\delta q}{\delta x_n} \sigma_{x_n} \right)^2 \\
+&= \sum^n_{i=1}\left( \frac{\delta q}{\delta x_i} \sigma_{x_i} \right)^2
 \end{align*}
 
-$$
-Var[y_{t+1}] \approx \text{Internal}
-$$
+\credit{Ku, 1966, \emph{J. Res. National Bureau of Standards - C}}
 
-\hfill\column{0.28\textwidth}
-
-\roundpicture{figures/satellite.jpg}{}
-
-\stopcols
-
-## Yellowstone bison (*Bison bison*)
-
-\includegraphics[width=\textwidth]{./figures/National-Park_Sandy-Sist.jpg}
-
-## Yellowstone bison (*Bison bison*)
-
-\centering
-\includegraphics[height=2.7in]{./figures/bison_winter.jpg}
-
-##	Time series of bison counts (1970 - 2017)
-
-Response
-: Bison counts
-
-Covariate
-: January precipitation
-
-\includegraphics[width=\textwidth]{./figures/bison_data_plots.png}
-
-##	Gompertz population growth
+## An (\emph{inverse}) error propagation problem
 
 \begin{align*}
-mu_{(t)} &= \text{log}(z_{(t-1)}) + e_{(t)} + r + b_0 \text{log}(z_{(t-1)} + e_{(t)}) + b_1 x_{(t)} \\
-\text{log}(z_{(t)}) &\sim \text{Normal}\left( \mu_{(t)}, \sigma^2_\text{p} \right)
+\sigma^2_q &= \underbrace{\sum^n_{i=1}\left( \frac{\delta q}{\delta x_i} \sigma_{x_i} \right)^2}_{\text{variances}} + \underbrace{\sum^n_{i=1} \sum^n_{j(j \ne i)} 2 \sigma_{ij}\left( \frac{\delta q}{\delta x_i} \right)\left( \frac{\delta q}{\delta x_j} \right)}_{\text{covariances}}
 \end{align*}
 
-\footnotesize
+\credit{Ku, 1966, \emph{J. Res. National Bureau of Standards - C}}
 
-$z_t$
-: \alert{latent} population abundance in year *t*
+## Recast as forecast uncertainty
 
-$e_t$
-: log of harvested animals between $t-1$ and $t$
-
-$r$
-: per capita growth rate
-
-$b_0$
-: density dependence
-
-$b_1$
-: effect of January precipitation
-
-$x_t$
-: January precipitation in year *t*
-
-$\sigma^2_\text{p}$
-: process variance
-
-
-
-## Likelihood and fully specified model
- 
- Likelihood
-
- $$
- y_{(t)} \sim \text{NB} \left(  z_{(t)} , \kappa \right)
- $$
-
- Full model
+Forecast of state $z$ at $t+1$ from function $q$: $q = f(z_t, x_t, \theta, \varepsilon_{t+1})$
 
 \small
 
- $$
- \left[ \boldsymbol{\theta}_\text{p}, \kappa, z_{(t)}, z_{(t-1)} | y_{(t)}, x_{(t)} \right ] \propto \prod_{t=2}^{\textcolor{red}{48}} \underbrace{\left[ z_{(t)} | \boldsymbol{\theta}_\text{p}, z_{(t-1)}, x_{(t)} \right]}_{\text{process}} \prod_{t=1}^{\textcolor{red}{41}} \underbrace{\left[ y_{(t)} | \kappa, z_{(t)} \right]}_{\text{data}} \underbrace{\left[ \boldsymbol{\theta}_\text{p}, \kappa, z_{(t=1)}\right]}_{\text{parameters}}
- $$
+\begin{align*}
+Var[y_{t+1}] \approx \underbrace{\left(\frac{\delta q}{\delta y} \right)^2}_{\text{stability}} 
+               \underbrace{\vphantom{ \left(\frac{\delta q}{\delta y} \right)^2 } Var[y_t]}_{\text{IC uncert.}} +
+               \underbrace{\vphantom{ \left(\frac{\delta q}{\delta y} \right)^2 }\left(\frac{\delta f}{\delta x} \right)^2}_{\text{driver sens.}} 
+               \underbrace{\vphantom{ \left(\frac{\delta q}{\delta y} \right)^2 } Var[x_t]}_{\text{driver uncert.}} +
+               \underbrace{\vphantom{ \left(\frac{\delta q}{\delta y} \right)^2 }\left(\frac{\delta f}{\delta \theta} \right)^2}_{\text{param sens.}}
+               \underbrace{\vphantom{ \left(\frac{\delta q}{\delta y} \right)^2 } Var[\theta]}_{\text{param. uncert.}} +
+               \underbrace{\vphantom{ \left(\frac{\delta q}{\delta y} \right)^2 } Var[\varepsilon_{t+1}]}_{\text{process error}}
+\end{align*}
 
- <!-- Includes a strong prior on $r$ based on Hobbs et al. 2015: $r \sim \text{Normal}(0.1, 0.02)$ -->
+\credit{Dietze, 2017, \emph{Ecological Applications}}
 
-## Posterior distribution of climate effect
+##   Interaction (covariances) cannot be ignored
+
+\begin{align*}
+z_{t+1} &= z_{t} \beta_0 + x_t \beta_1 + \varepsilon_{t+1}, \\
+z_{t=1} &\sim \text{Normal}(z_0, \sigma^2_{\text{init.}}), \qquad \scriptstyle\text{initial conditions uncertainty} \\
+\mathbf{\beta} &\sim \text{MVN}(0, \Sigma \textbf{I}), \qquad \qquad \; \scriptstyle\text{parameter uncertainty} \\
+\varepsilon_t &\sim \text{Normal}(0, \sigma^2_{\text{proc.}}) \qquad \; \scriptstyle\text{process uncertainty}
+\end{align*}
+
+##   Interaction (covariances) cannot be ignored
 
 \centering
-\includegraphics[height = 2.5in]{./figures/bison_post_params.pdf}
+\includegraphics[width=\textwidth]{./figures/forecast_uncertainty_example.pdf}
 
-##	Model fit and forecast
+##	Hierarchical Bayesian models propagate uncertainty for us
 
-\centering
-\includegraphics[height=2.7in]{./figures/bison_fit.pdf}
+\begin{equation*}
+\begin{aligned}[b]
+\textbf{Data Model:} \quad y_t &\sim \left[y_t \;|\; z_t, \sigma^2_{\text{o}}\right], &t = 1,\dots,T, \\ 
+\textbf{Process Models:} \quad z_t &\sim \left[z_t \;|\; \mu_t, \sigma^2_{\text{p}}\right],  \\ 
+\mu_t &= g \left(z_{t-1},\textbf{x}'_t, \boldmath{\theta} \right), &t = 2,\dots,T, \\ 
+\textbf{Parameter Models:} \quad \boldmath{\phi} &\sim \left[\boldmath{\theta},\sigma^2_{\text{p}},\sigma^2_{\text{o}},z_{t=1} \right],
+\end{aligned}
+\end{equation*}
 
-##	Forecast partition
+\credit{Berliner, 1996, \emph{in} Maximum entropy and bayesian methods}
 
-\centering
-\includegraphics[height=2.7in]{./figures/forecast_partition.pdf}
+##	The Forecast distribution
 
-##	Climate Projections are uncertain
+\begin{equation}
+\begin{gathered}
+\left[z_{T+1} | y_1,\dots,y_T \right] = \int \int \dots \int \left[z_{T+1} | z_T, \textbf{x}_T, \boldmath{\theta}, \sigma^2_{\text{p}} \right] \\ \times \left[z_1,\dots,z_{T+1},\boldmath{\theta}, \sigma^2_{\text{p}} | y_1,\dots,y_T \right] d \boldmath{\theta} d\sigma^2_{\text{p}} dz_1 \dots dz_T.
+\end{gathered}
+\end{equation}
 
-\centering
-\includegraphics[height=2.7in]{./figures/precip_projections.pdf}
+\credit{Hobbs and Hooten, 2015, Bayesian Models: A Statistical Primer for Ecologists}
 
-#	Closing thoughts
+##  The Forecast Distribution, via MCMC
 
-##	Closing thoughts
+We have:
+ - $k = 1,\dots,K$ MCMC iterations
+ - $j = 1,\dots,J$ realizations of the covariate, resampled to match $K$
+ - Forecasts at times $T+q,\dots,T+Q$
 
-1. We have the tools and the data streams to start forecasting.
-2. The time to start is now.
-3. Embrace our failures.
-4. Generate \alert{meaningful} forecasts -- forecasts that someone wants.
+$z_{T+q}^{(k)} \sim \left[z_{T+q} | g(z_{T+q-1}^{(k)}, \textbf{x}_{T+q}^{(j(k))},\boldmath{\theta}^{(k)}), \sigma^{2(k)}_{\text{p}} \right]$
+
+
