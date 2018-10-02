@@ -181,8 +181,8 @@ Var[y_{t+1}] \approx \underbrace{\left(\frac{\delta q}{\delta y} \right)^2}_{\te
 \begin{align*}
 z_{t+1} &= z_{t} \beta_0 + x_t \beta_1 + \varepsilon_{t+1}, \\
 z_{t=1} &\sim \text{Normal}(z_0, \sigma^2_{\text{init.}}), \qquad \scriptstyle\text{initial conditions uncertainty} \\
-\mathbf{\beta} &\sim \text{MVN}(0, \Sigma \textbf{I}), \qquad \qquad \; \scriptstyle\text{parameter uncertainty} \\
-\varepsilon_t &\sim \text{Normal}(0, \sigma^2_{\text{proc.}}) \qquad \; \scriptstyle\text{process uncertainty}
+\mathbf{\beta} &\sim \text{MVN}(0, \sigma^2_{\text{param.}} \mathbf{I}), \qquad \scriptstyle\text{parameter uncertainty} \\
+\varepsilon_t &\sim \text{Normal}(0, \sigma^2_{\text{proc.}}) \qquad \scriptstyle\text{process uncertainty}
 \end{align*}
 
 ##   Interaction (covariances) cannot be ignored
@@ -207,7 +207,7 @@ z_{t=1} &\sim \text{Normal}(z_0, \sigma^2_{\text{init.}}), \qquad \scriptstyle\t
 
 \begin{equation}
 \begin{gathered}
-\left[z_{T+1} | y_1,\dots,y_T \right] = \int \int \dots \int \left[z_{T+1} | z_T, \textbf{x}_T, \boldmath{\theta}, \sigma^2_{\text{p}} \right] \\ \times \left[z_1,\dots,z_{T+1},\boldmath{\theta}, \sigma^2_{\text{p}} | y_1,\dots,y_T \right] d \boldmath{\theta} d\sigma^2_{\text{p}} dz_1 \dots dz_T.
+\left[z_{T+1} | y_1,\dots,y_T \right] = \int \int \dots \int \left[z_{T+1} | z_T, \textbf{x}_T, \theta, \sigma^2_{\text{p}} \right] \\ \times \left[z_1,\dots,z_{T+1},\theta, \sigma^2_{\text{p}} | y_1,\dots,y_T \right] d \theta d \sigma^2_{\text{p}} d z_1 \dots d z_T.
 \end{gathered}
 \end{equation}
 
@@ -216,10 +216,29 @@ z_{t=1} &\sim \text{Normal}(z_0, \sigma^2_{\text{init.}}), \qquad \scriptstyle\t
 ##  The Forecast Distribution, via MCMC
 
 We have:
- - $k = 1,\dots,K$ MCMC iterations
- - $j = 1,\dots,J$ realizations of the covariate, resampled to match $K$
- - Forecasts at times $T+q,\dots,T+Q$
 
-$z_{T+q}^{(k)} \sim \left[z_{T+q} | g(z_{T+q-1}^{(k)}, \textbf{x}_{T+q}^{(j(k))},\boldmath{\theta}^{(k)}), \sigma^{2(k)}_{\text{p}} \right]$
+\begin{itemize}
+ \item $k = 1,\dots,K$ MCMC iterations
+ \item $j = 1,\dots,J$ realizations of the covariate, resampled to match $K$
+ \item Forecasts at times $T+q,\dots,T+Q$
+\end{itemize}
+
+\begin{equation*}
+z_{T+q}^{(k)} \sim \left[z_{T+q} | g(z_{T+q-1}^{(k)}, \textbf{x}_{T+q}^{(j(k))},\boldmath{\theta}^{(k)}), \sigma^{2(k)}_{\text{p}} \right]
+\end{equation*}
+
+##	Partition Forecast Uncertainty
+
+ANOVA
+
+\begin{equation*}
+\begin{aligned}[b]
+V_{T+q}^{(F)} = \ &V_{T+q}^{(I)} + V_{T+q}^{(PA)} + V_{T+q}^{(D)} + V_{T+q}^{(PS)} \\
+&+ \varepsilon_{T+q}^{(I,PA)} + \varepsilon_{T+q}^{(I,D)} + \varepsilon_{T+q}^{(I,PS)} + \varepsilon_{T+q}^{(PA,PS)} + \varepsilon_{T+q}^{(PA,D)} + \varepsilon_{T+q}^{(D,PS)} \\
+&+ \varepsilon_{T+q}^{(I,PA,D)} + \varepsilon_{T+q}^{(I,PA,PS)} + \varepsilon_{T+q}^{(I,D,PS)} + \varepsilon_{T+q}^{(PA,D,PS)} \\
+&+ \varepsilon_{T+q}^{(I,PA,D,PS)}
+\end{aligned}
+\end{equation*}
+
 
 
