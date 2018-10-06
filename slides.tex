@@ -1,4 +1,4 @@
-\documentclass[14pt, compress, aspectratio=1610]{beamer}
+\documentclass[12pt, compress, aspectratio=1610]{beamer}
 
 \usetheme{pl}
 
@@ -92,7 +92,7 @@
   }
   \put(0,-145){%
       \begin{minipage}[b][4.5cm][t]{0.5\textwidth}
-          \color{white}\huge
+          \Large
               #1
       \end{minipage}
   }
@@ -102,7 +102,7 @@
 \title{Spatiotemporal forecasting of plant populations and the need to
 partition forecast uncertainty}
 \subtitle{}
-\date{October 12, 2018}
+\date{October 13, 2018}
 \author{Andrew Tredennick}
 \institute{University of Georgia}
 
@@ -404,7 +404,7 @@ Interaction (covariances) cannot be ignored}}
 z_{t+1} &= z_{t} \beta_0 + x_t \beta_1 + \varepsilon_{t+1}, \\
 z_{t=1} &\sim \text{Normal}(z_0, \sigma^2_{\text{init.}}), \qquad \scriptstyle\text{initial conditions uncertainty} \\
 \mathbf{\beta} &\sim \text{MVN}(0, \sigma^2_{\text{param.}} \mathbf{I}), \qquad \scriptstyle\text{parameter uncertainty} \\
-\varepsilon_t &\sim \text{Normal}(0, \sigma^2_{\text{proc.}}) \qquad  \scriptstyle\text{process uncertainty}
+\varepsilon_t &\sim \text{Normal}(0, \sigma^2_{\text{proc.}}) \qquad \scriptstyle\text{process uncertainty}
 \end{align*}
 
 \end{frame}

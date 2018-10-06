@@ -68,7 +68,7 @@
   \put(-28.5,-175){%
       \pgfuseimage{titlebackground}
   }
-  \put(398, 100){\color{white}\tiny\ccby}%
+  \put(398, 100){\color{black}\tiny\ccby}%
   \put(0,-145){%
       \begin{minipage}[b][4.5cm][t]{0.75\textwidth}
           \color{white}
@@ -119,11 +119,11 @@
  segment distance/.store in=\segdist,
  segment distance=8,
  color current frame/.store in=\colcurrframe,
- color current frame=plST!45,
+ color current frame=plST!30,
  color old frame/.store in=\cololdframe,
- color old frame=plST,
+ color old frame=plST!50,
  color next frame/.store in=\colnextframe,
- color next frame=plFG!15,
+ color next frame=plFG!10,
  current value/.store in=\currentv,
  current value=1,
  total value/.store in=\totalv,
@@ -174,8 +174,8 @@
 
 % Let's change some options:
 \setvcoptions{
- segment distance=7,
- thickness=0.4ex
+ segment distance=4,
+ thickness=0.3ex
 }
 
 % Insert frame with section title at every section start
@@ -236,7 +236,7 @@
   tick align=outside,
   every axis/.append style={
     line width=0.2pt,
-    font=\normalsize\bfseries\rmfamily,
+    font=\normalsize\bfseries,
     plFG,
   },
   xlabel style={

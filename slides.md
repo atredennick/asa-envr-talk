@@ -2,7 +2,7 @@
 title: Spatiotemporal forecasting of plant populations and the need to partition forecast uncertainty
 author: Andrew Tredennick
 institute: University of Georgia
-date: October 12, 2018
+date: October 13, 2018
 ---
 
 ##   Collaborators
