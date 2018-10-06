@@ -198,7 +198,7 @@ z_{t=1} &\sim \text{Normal}(z_0, \sigma^2_{\text{init.}}), \qquad \scriptstyle\t
 \textbf{Data Model:} \quad y_t &\sim \left[y_t \;|\; z_t, \sigma^2_{\text{o}}\right], &t = 1,\dots,T, \\ 
 \textbf{Process Models:} \quad z_t &\sim \left[z_t \;|\; \mu_t, \sigma^2_{\text{p}}\right],  \\ 
 \mu_t &= g \left(z_{t-1},\textbf{x}'_t, \boldmath{\theta} \right), &t = 2,\dots,T, \\ 
-\textbf{Parameter Models:} \quad \boldmath{\phi} &\sim \left[\boldmath{\theta},\sigma^2_{\text{p}},\sigma^2_{\text{o}},z_{t=1} \right],
+\textbf{Parameter Models:} \quad \boldmath{\phi} &\sim \left[\boldmath{\theta},\sigma^2_{\text{p}},\sigma^2_{\text{o}},z_{t=1} \right]
 \end{aligned}
 \end{equation*}
 
@@ -206,11 +206,11 @@ z_{t=1} &\sim \text{Normal}(z_0, \sigma^2_{\text{init.}}), \qquad \scriptstyle\t
 
 ##	The Forecast distribution
 
-\begin{equation}
+\begin{equation*}
 \begin{gathered}
-\left[z_{T+1} | y_1,\dots,y_T \right] = \int \int \dots \int \left[z_{T+1} | z_T, \textbf{x}_T, \theta, \sigma^2_{\text{p}} \right] \\ \times \left[z_1,\dots,z_{T+1},\theta, \sigma^2_{\text{p}} | y_1,\dots,y_T \right] d \theta d \sigma^2_{\text{p}} d z_1 \dots d z_T.
+\left[z_{T+1} | y_1,\dots,y_T \right] = \int \int \dots \int \left[z_{T+1} | z_T, \textbf{x}_T, \theta, \sigma^2_{\text{p}} \right] \\ \times \left[z_1,\dots,z_{T+1},\theta, \sigma^2_{\text{p}} | y_1,\dots,y_T \right] d \theta d \sigma^2_{\text{p}} d z_1 \dots d z_T
 \end{gathered}
-\end{equation}
+\end{equation*}
 
 \credit{Hobbs and Hooten, 2015, Bayesian Models: A Statistical Primer for Ecologists}
 
@@ -228,6 +228,75 @@ We have:
 z_{T+q}^{(k)} \sim \left[z_{T+q} | g(z_{T+q-1}^{(k)}, \textbf{x}_{T+q}^{(j(k))},\boldmath{\theta}^{(k)}), \sigma^{2(k)}_{\text{p}} \right]
 \end{equation*}
 
+##	\emph{Post hoc} partitioning from MCMC samples
+
+\bf{Ignore initial conditions uncertainty}
+
+\begin{equation*}
+\alert{z_{T}^{(\ast)}} = E(z_{T} | y_1,\dots,y_T) \approx \frac{\sum^K_{k=1} z_{T}^{(k)}}{K}
+\end{equation*}
+
+\begin{equation*}
+    z_{T+q} \sim 
+\begin{cases}
+    \left[z_{T+q} | g(z_{T+q-1}^{(k)}, \textbf{x}_T^{(j(k))}, \boldmath{\theta}^{(k)}), \sigma^{2(k)}_{\text{p}} \right], &q>1 \\
+    \left[z_{T+q} | g(\alert{z_{T}^{(\ast)}}, \textbf{x}_T^{(j(k))}, \boldmath{\theta}^{(k)}), \sigma^{2(k)}_{\text{p}} \right], &q=1.
+\end{cases}
+\end{equation*}
+
+
+##	\emph{Post hoc} partitioning from MCMC samples
+
+| \emph{k} | $z_T$          | $\theta_1$       | $\cdots$  |
+|:--------:|:--------------:|:----------------:|:---------:|
+| 1        | $z_{T}^{(\ast)}$ | $\theta_1^{(1)}$ | $\cdots$  |
+| 2        | $z_{T}^{(\ast)}$ | $\theta_1^{(2)}$ | $\cdots$  |
+| 3        | $z_{T}^{(\ast)}$ | $\theta_1^{(3)}$ | $\cdots$  |
+| 4        | $z_{T}^{(\ast)}$ | $\theta_1^{(4)}$ | $\cdots$  |
+| 5        | $z_{T}^{(\ast)}$ | $\theta_1^{(5)}$ | $\cdots$  |
+| $\vdots$ | $\vdots$       | $\vdots$         | $\vdots$  |
+| K        | $z_{T}^{(\ast)}$ | $\theta_1^{(K)}$ | $\cdots$  |
+
+
+##	\emph{Post hoc} partitioning from MCMC samples
+
+\begin{align*}
+\textbf{Z}^{(I)} &= \textbf{Z}^{(I,\overline{PA},\overline{D},\overline{PS})} \\
+\textbf{Z}^{(I)} &\approx \left[z_{T+q} \; | \; g(z_{T+q-1}^{(k)}, \textbf{x}^{(\ast)}_T, \boldmath{\theta}^{(\ast)}), 0 \right] \\
+\end{align*}
+
+##	\emph{Post hoc} partitioning from MCMC samples
+
+\begin{align*}
+\textbf{Z}^{(I)} &= \textbf{Z}^{(I,\overline{PA},\overline{D},\overline{PS})} \\
+\textbf{Z}^{(I)} &\approx \left[z_{T+q} \; | \; g(z_{T+q-1}^{(k)}, \alert{\textbf{x}^{(\ast)}_T, \boldmath{\theta}^{(\ast)}}), \alert{0} \right]
+\end{align*}
+
+##	\emph{Post hoc} partitioning from MCMC samples
+
+\begin{align*}
+\textbf{Z}^{(I)} &= \textbf{Z}^{(I,\overline{PA},\overline{D},\overline{PS})} \\
+\textbf{Z}^{(I)} &\approx \left[z_{T+q} \; | \; g(z_{T+q-1}^{(k)}, \alert{\textbf{x}^{(\ast)}_T, \boldmath{\theta}^{(\ast)}}), \alert{0} \right] \\
+V^{(I)} &= \text{var}(\textbf{Z}^{(I)})
+\end{align*}
+
+##	\emph{Post hoc} partitioning from MCMC samples
+
+| Source of Uncertainty | Notation           |
+| :-------------------- | :----------------- |
+| Initial conditions    | $V^{(I) \ } = V^{(I,\overline{PA},\overline{D},\overline{PS})}$ | 
+| Parameter uncertainty | $V^{(PA)} = V^{(\overline{I},PA,\overline{D},\overline{PS})}$ |
+| Driver uncertainty    | $V^{(D) \ } = V^{(\overline{I},\overline{PA},D,\overline{PS})}$ |
+| Process uncertainty   | $V^{(PS)}=V^{(\overline{I},\overline{PA},\overline{D},PS)}$ |
+
+##	Partition Forecast Uncertainty: ANOVA
+
+\begin{equation*}
+\begin{aligned}[b]
+V_{T+q}^{(F)} = \ &V_{T+q}^{(I)} + V_{T+q}^{(PA)} + V_{T+q}^{(D)} + V_{T+q}^{(PS)}
+\end{aligned}
+\end{equation*}
+
 ##	Partition Forecast Uncertainty: ANOVA
 
 \begin{equation*}
@@ -239,5 +308,30 @@ V_{T+q}^{(F)} = \ &V_{T+q}^{(I)} + V_{T+q}^{(PA)} + V_{T+q}^{(D)} + V_{T+q}^{(PS
 \end{aligned}
 \end{equation*}
 
+##	Partition Forecast Uncertainty: ANOVA
 
+Example where forecast is influenced by initial conditions ($I$) and parameter uncertainty ($PA$):
+
+\begin{equation*}
+V^{(F)}_{T+q} = V^{(I)}_{T+q} + V^{(PA)}_{T+q} + \alert{\varepsilon_{T+q}^{(I,PA)}}
+\end{equation*}
+
+so,
+
+\begin{equation*}
+\alert{\varepsilon_{T+q}^{(I,PA)}} = V^{(F)}_{T+q} - \left[ V^{(I)}_{T+q} + V^{(PA)}_{T+q} \right]
+\end{equation*}
+
+##	Return to example of AR(1) process
+
+\centering
+\includegraphics[height=2.5in]{./figures/example_interaction_effect.pdf}
+
+#	Concluding thoughts
+
+##	Conclusions
+
+1. Partition uncertainty to advance ecological forecasting -- how do we get better?
+2. Partition uncertainty to advance scientific progress -- what don't we know?
+3. Hierarchical Bayesian models ideally suited for partitioning uncertainty because they allow us to fully specify the inclusion of uncertainty.
 

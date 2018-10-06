@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99991 (TeX Live 2014) (preloaded format=xelatex 2014.5.25)  6 OCT 2018 12:23
+This is XeTeX, Version 3.14159265-2.6-0.99991 (TeX Live 2014) (preloaded format=xelatex 2014.5.25)  6 OCT 2018 16:47
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -2274,11 +2274,100 @@ LaTeX Font Warning: Command \mathversion invalid in math mode on input line 469
 
 [32
 
-] [33
+]
+
+LaTeX Font Warning: Command \boldmath invalid in math mode on input line 489.
+
+
+LaTeX Font Warning: Command \mathversion invalid in math mode on input line 489
+.
+
+LaTeX Font Info:    Font shape `EU1/Cousine(0)/bx/n' will be
+(Font)              scaled to size 9.78955pt on input line 489.
+
+LaTeX Font Warning: Command \boldmath invalid in math mode on input line 489.
+
+
+LaTeX Font Warning: Command \mathversion invalid in math mode on input line 489
+.
+
+[33
+
+] [34
+
+]
+
+LaTeX Font Warning: Command \boldmath invalid in math mode on input line 521.
+
+
+LaTeX Font Warning: Command \mathversion invalid in math mode on input line 521
+.
+
+
+LaTeX Font Warning: Command \boldmath invalid in math mode on input line 521.
+
+
+LaTeX Font Warning: Command \mathversion invalid in math mode on input line 521
+.
+
+[35
+
+]
+
+LaTeX Font Warning: Command \boldmath invalid in math mode on input line 532.
+
+
+LaTeX Font Warning: Command \mathversion invalid in math mode on input line 532
+.
+
+
+LaTeX Font Warning: Command \boldmath invalid in math mode on input line 532.
+
+
+LaTeX Font Warning: Command \mathversion invalid in math mode on input line 532
+.
+
+[36
+
+]
+
+LaTeX Font Warning: Command \boldmath invalid in math mode on input line 544.
+
+
+LaTeX Font Warning: Command \mathversion invalid in math mode on input line 544
+.
+
+
+LaTeX Font Warning: Command \boldmath invalid in math mode on input line 544.
+
+
+LaTeX Font Warning: Command \mathversion invalid in math mode on input line 544
+.
+
+[37
+
+] [38
+
+] [39
+
+] [40
+
+] [41
+
+]
+File: ./figures/example_interaction_effect.pdf Graphic file (type QTm)
+ <use  "./figures/example_interaction_effect.pdf" >
+[42
 
 ]
 File: background.png Graphic file (type QTm)
- <use  "background.png" > [34
+ <use  "background.png" > [43
+
+] [44
+
+]
+File: background.png Graphic file (type QTm)
+ <use  "background.png" > [45
 
 ]
 \tf@nav=\write8
@@ -2290,20 +2379,21 @@ File: background.png Graphic file (type QTm)
 \tf@snm=\write10
 \openout10 = `slides.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 494.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 494.
- (./slides.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 494.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 494.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 494.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 672.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 672.
+
+(./slides.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 672.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 672.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 672.
  ) 
 Here is how much of TeX's memory you used:
- 47309 strings out of 493734
- 1046161 string characters out of 6146348
- 1193355 words of memory out of 5000000
- 49762 multiletter control sequences out of 15000+600000
- 14645 words of font info for 113 fonts, out of 8000000 for 9000
+ 47433 strings out of 493734
+ 1048754 string characters out of 6146348
+ 1203598 words of memory out of 5000000
+ 49882 multiletter control sequences out of 15000+600000
+ 14669 words of font info for 116 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  72i,26n,119p,10522b,1054s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on slides.pdf (34 pages).
+Output written on slides.pdf (45 pages).

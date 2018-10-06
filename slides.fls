@@ -507,6 +507,8 @@ INPUT ./figures/clim_change_mean_spatial.pdf
 INPUT ./figures/temporal_forecasts_presentation.pdf
 INPUT background.png
 INPUT ./figures/forecast_uncertainty_example.pdf
+INPUT ./figures/example_interaction_effect.pdf
+INPUT background.png
 INPUT background.png
 OUTPUT slides.nav
 OUTPUT slides.toc
