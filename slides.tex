@@ -64,7 +64,7 @@
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 \let\OldTexttt\texttt
-\renewcommand{\texttt}[1]{\OldTexttt{\color{plTT}#1}}
+\renewcommand{\texttt}[1]{\OldTexttt{\color{codecolor}#1}}
 
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -91,18 +91,18 @@
       \pgfuseimage{titlebackground}
   }
   \put(0,-145){%
-      \begin{minipage}[b][4.5cm][t]{0.5\textwidth}
+      \begin{minipage}[b][4.5cm][t]{0.7\textwidth}
           \Large
-              #1
+          #1
       \end{minipage}
   }
 \end{picture}
 }
 
-\title{Spatiotemporal forecasting of plant populations and the need to
+\title{Spatiotemporal forecasting of plant populations and a proposal to
 partition forecast uncertainty}
 \subtitle{}
-\date{October 13, 2018}
+\date{October 12, 2018}
 \author{Andrew Tredennick}
 \institute{University of Georgia}
 
@@ -169,8 +169,8 @@ Really hard work}}
 \end{frame}
 
 \begin{frame}{%
-\protect\hypertarget{free-from-the-tyranny-of-demographic-data}{%
-Free from the tyranny of demographic data!}}
+\protect\hypertarget{do-we-need-demographic-data}{%
+Do we need demographic data?}}
 
 \centering
 
@@ -181,7 +181,7 @@ Free from the tyranny of demographic data!}}
 \end{frame}
 
 \begin{frame}{%
-\protect\hypertarget{free-from-the-tyranny-of-demographic-data-1}{%
+\protect\hypertarget{free-from-the-tyranny-of-demographic-data}{%
 Free from the tyranny of demographic data!}}
 
 \centering
@@ -205,7 +205,7 @@ Forecast horizons}}
 \end{frame}
 
 \begin{frame}{%
-\protect\hypertarget{do-we-need-demographic-data}{%
+\protect\hypertarget{do-we-need-demographic-data-1}{%
 Do we need demographic data?}}
 
 \centering
@@ -302,7 +302,7 @@ Climate effects}}
 \protect\hypertarget{model-performance}{%
 Model performance}}
 
-\small{RMSE $\approx$ 4\%}
+\small{In-sample RMSE $\approx$ 4\%}
 
 \includegraphics[width=\textwidth]{./figures/obs_predict_spatial_pres.pdf}
 
@@ -347,35 +347,8 @@ Forecasts under climate change: temporal}}
 uncertainty}\label{partitioning-forecast-uncertainty}}
 
 \begin{frame}{%
-\protect\hypertarget{an-error-propagation-problem}{%
-An (\emph{inverse}) error propagation problem}}
-
-For some function \(q\): \(q = f(x_1,x_2,\dots,x_n)\)
-
-\begin{align*}
-\sigma^2_q &= \left( \frac{\delta q}{\delta x_1} \sigma_{x_1} \right)^2 + \left( \frac{\delta q}{\delta x_2} \sigma_{x_2} \right)^2 + \cdots + \left( \frac{\delta q}{\delta x_n} \sigma_{x_n} \right)^2 \\
-&= \sum^n_{i=1}\left( \frac{\delta q}{\delta x_i} \sigma_{x_i} \right)^2
-\end{align*}
-
-\credit{Ku, 1966, \emph{J. Res. National Bureau of Standards - C}}
-
-\end{frame}
-
-\begin{frame}{%
-\protect\hypertarget{an-error-propagation-problem-1}{%
-An (\emph{inverse}) error propagation problem}}
-
-\begin{align*}
-\sigma^2_q &= \underbrace{\sum^n_{i=1}\left( \frac{\delta q}{\delta x_i} \sigma_{x_i} \right)^2}_{\text{variances}} + \underbrace{\sum^n_{i=1} \sum^n_{j(j \ne i)} 2 \sigma_{ij}\left( \frac{\delta q}{\delta x_i} \right)\left( \frac{\delta q}{\delta x_j} \right)}_{\text{covariances}}
-\end{align*}
-
-\credit{Ku, 1966, \emph{J. Res. National Bureau of Standards - C}}
-
-\end{frame}
-
-\begin{frame}{%
-\protect\hypertarget{recast-as-forecast-uncertainty}{%
-Recast as forecast uncertainty}}
+\protect\hypertarget{forecast-uncertainty-to-a-first-approximation}{%
+Forecast uncertainty, to a first approximation}}
 
 Forecast of state \(z\) at \(t+1\) from function \(q\):
 \(q = f(z_t, x_t, \theta, \varepsilon_{t+1})\)
@@ -393,6 +366,33 @@ Var[y_{t+1}] \approx \underbrace{\left(\frac{\delta q}{\delta y} \right)^2}_{\te
 \end{align*}
 
 \credit{Dietze, 2017, \emph{Ecological Applications}}
+
+\end{frame}
+
+\begin{frame}{%
+\protect\hypertarget{an-error-propagation-problem}{%
+An \emph{inverse} error propagation problem}}
+
+For some function \(q\): \(q = f(x_1,x_2,\dots,x_n)\)
+
+\begin{align*}
+\sigma^2_q &= \left( \frac{\delta q}{\delta x_1} \sigma_{x_1} \right)^2 + \left( \frac{\delta q}{\delta x_2} \sigma_{x_2} \right)^2 + \cdots + \left( \frac{\delta q}{\delta x_n} \sigma_{x_n} \right)^2 \\
+&= \sum^n_{i=1}\left( \frac{\delta q}{\delta x_i} \sigma_{x_i} \right)^2
+\end{align*}
+
+\credit{Ku, 1966, \emph{J. Res. National Bureau of Standards - C}}
+
+\end{frame}
+
+\begin{frame}{%
+\protect\hypertarget{an-error-propagation-problem-1}{%
+An \emph{inverse} error propagation problem}}
+
+\begin{align*}
+\sigma^2_q &= \underbrace{\sum^n_{i=1}\left( \frac{\delta q}{\delta x_i} \sigma_{x_i} \right)^2}_{\text{variances}} + \alert{\underbrace{\sum^n_{i=1} \sum^n_{j(j \ne i)} 2 \sigma_{ij}\left( \frac{\delta q}{\delta x_i} \right)\left( \frac{\delta q}{\delta x_j} \right)}_{\text{covariances}}}
+\end{align*}
+
+\credit{Ku, 1966, \emph{J. Res. National Bureau of Standards - C}}
 
 \end{frame}
 
@@ -469,10 +469,8 @@ z_{T+q}^{(k)} \sim \left[z_{T+q} | g(z_{T+q-1}^{(k)}, \textbf{x}_{T+q}^{(j(k))},
 \end{frame}
 
 \begin{frame}{%
-\protect\hypertarget{partition-forecast-uncertainty}{%
-Partition Forecast Uncertainty}}
-
-ANOVA
+\protect\hypertarget{partition-forecast-uncertainty-anova}{%
+Partition Forecast Uncertainty: ANOVA}}
 
 \begin{equation*}
 \begin{aligned}[b]

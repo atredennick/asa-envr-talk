@@ -1,8 +1,8 @@
 ---
-title: Spatiotemporal forecasting of plant populations and the need to partition forecast uncertainty
+title: Spatiotemporal forecasting of plant populations and a proposal to partition forecast uncertainty
 author: Andrew Tredennick
 institute: University of Georgia
-date: October 13, 2018
+date: October 12, 2018
 ---
 
 ##   Collaborators
@@ -34,7 +34,7 @@ $\phantom{testtest}$ \roundpicture{images/peter.jpg}{} \hspace{5em} \roundpictur
 \includegraphics[width=\textwidth]{./figures/chart_measuring.jpg}
 
 
-##   Free from the tyranny of demographic data!
+##   Do we need demographic data?
 
 \centering
 \includegraphics[height=2.5in]{./figures/mee_forecast_accuracy_empty.pdf}
@@ -111,7 +111,7 @@ y_{i,t} &\sim \text{Poisson}(\mu_{i,t}) \\
 
 ##	Model performance
 
-\small{RMSE $\approx$ 4\%}
+\small{In-sample RMSE $\approx$ 4\%}
 
 \includegraphics[width=\textwidth]{./figures/obs_predict_spatial_pres.pdf}
 
@@ -139,26 +139,7 @@ y_{i,t} &\sim \text{Poisson}(\mu_{i,t}) \\
 
 # Partitioning forecast uncertainty
 
-## An (\emph{inverse}) error propagation problem
-
-For some function $q$: $q = f(x_1,x_2,\dots,x_n)$
-
-\begin{align*}
-\sigma^2_q &= \left( \frac{\delta q}{\delta x_1} \sigma_{x_1} \right)^2 + \left( \frac{\delta q}{\delta x_2} \sigma_{x_2} \right)^2 + \cdots + \left( \frac{\delta q}{\delta x_n} \sigma_{x_n} \right)^2 \\
-&= \sum^n_{i=1}\left( \frac{\delta q}{\delta x_i} \sigma_{x_i} \right)^2
-\end{align*}
-
-\credit{Ku, 1966, \emph{J. Res. National Bureau of Standards - C}}
-
-## An (\emph{inverse}) error propagation problem
-
-\begin{align*}
-\sigma^2_q &= \underbrace{\sum^n_{i=1}\left( \frac{\delta q}{\delta x_i} \sigma_{x_i} \right)^2}_{\text{variances}} + \underbrace{\sum^n_{i=1} \sum^n_{j(j \ne i)} 2 \sigma_{ij}\left( \frac{\delta q}{\delta x_i} \right)\left( \frac{\delta q}{\delta x_j} \right)}_{\text{covariances}}
-\end{align*}
-
-\credit{Ku, 1966, \emph{J. Res. National Bureau of Standards - C}}
-
-## Recast as forecast uncertainty
+## Forecast uncertainty, to a first approximation
 
 Forecast of state $z$ at $t+1$ from function $q$: $q = f(z_t, x_t, \theta, \varepsilon_{t+1})$
 
@@ -175,6 +156,26 @@ Var[y_{t+1}] \approx \underbrace{\left(\frac{\delta q}{\delta y} \right)^2}_{\te
 \end{align*}
 
 \credit{Dietze, 2017, \emph{Ecological Applications}}
+
+## An \emph{inverse} error propagation problem
+
+For some function $q$: $q = f(x_1,x_2,\dots,x_n)$
+
+\begin{align*}
+\sigma^2_q &= \left( \frac{\delta q}{\delta x_1} \sigma_{x_1} \right)^2 + \left( \frac{\delta q}{\delta x_2} \sigma_{x_2} \right)^2 + \cdots + \left( \frac{\delta q}{\delta x_n} \sigma_{x_n} \right)^2 \\
+&= \sum^n_{i=1}\left( \frac{\delta q}{\delta x_i} \sigma_{x_i} \right)^2
+\end{align*}
+
+\credit{Ku, 1966, \emph{J. Res. National Bureau of Standards - C}}
+
+## An \emph{inverse} error propagation problem
+
+\begin{align*}
+\sigma^2_q &= \underbrace{\sum^n_{i=1}\left( \frac{\delta q}{\delta x_i} \sigma_{x_i} \right)^2}_{\text{variances}} + \alert{\underbrace{\sum^n_{i=1} \sum^n_{j(j \ne i)} 2 \sigma_{ij}\left( \frac{\delta q}{\delta x_i} \right)\left( \frac{\delta q}{\delta x_j} \right)}_{\text{covariances}}}
+\end{align*}
+
+\credit{Ku, 1966, \emph{J. Res. National Bureau of Standards - C}}
+
 
 ##   Interaction (covariances) cannot be ignored
 
@@ -227,9 +228,7 @@ We have:
 z_{T+q}^{(k)} \sim \left[z_{T+q} | g(z_{T+q-1}^{(k)}, \textbf{x}_{T+q}^{(j(k))},\boldmath{\theta}^{(k)}), \sigma^{2(k)}_{\text{p}} \right]
 \end{equation*}
 
-##	Partition Forecast Uncertainty
-
-ANOVA
+##	Partition Forecast Uncertainty: ANOVA
 
 \begin{equation*}
 \begin{aligned}[b]
