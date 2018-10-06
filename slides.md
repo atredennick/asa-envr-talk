@@ -7,14 +7,14 @@ date: October 12, 2018
 
 ##   Collaborators
 
-$\phantom{testtesttt}$ Peter Adler (USU) \hspace{7em} Mevin Hooten (CSU)
+$\phantom{testtestttttt}$ Peter Adler (USU) \hspace{9em} Mevin Hooten (CSU)
 
 $\phantom{testtest}$ \roundpicture{images/peter.jpg}{} \hspace{5em} \roundpicture{images/mevin.jpg}{}
 
 ## Road map
 
 1. Plant population forecasts over large spatial extents
-2. A plea (and a proposal) to partitioning forecast uncertainty 
+2. A proposal for partitioning forecast uncertainty 
 
 
 #   Plant population forecasts
@@ -256,7 +256,6 @@ z_{T+q}^{(k)} \sim \left[z_{T+q} | g(z_{T+q-1}^{(k)}, \textbf{x}_{T+q}^{(j(k))},
 | 5        | $z_{T}^{(\ast)}$ | $\theta_1^{(5)}$ | $\cdots$  |
 | $\vdots$ | $\vdots$       | $\vdots$         | $\vdots$  |
 | K        | $z_{T}^{(\ast)}$ | $\theta_1^{(K)}$ | $\cdots$  |
-
 
 ##	\emph{Post hoc} partitioning from MCMC samples
 
