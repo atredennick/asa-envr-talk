@@ -326,11 +326,11 @@ so,
 \centering
 \includegraphics[height=2.5in]{./figures/example_interaction_effect.pdf}
 
-#	Concluding thoughts
+#	Conclusions
 
 ##	Conclusions
 
-1. Partition uncertainty to advance ecological forecasting -- how do we get better?
-2. Partition uncertainty to advance scientific progress -- what don't we know?
+1. Partition uncertainty to \alert{advance ecological forecasting} -- how do we get better?
+2. Partition uncertainty to \alert{advance scientific progress} -- what don't we know?
 3. Hierarchical Bayesian models ideally suited for partitioning uncertainty because they allow us to fully specify the inclusion of uncertainty.
 
