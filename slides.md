@@ -324,6 +324,16 @@ so,
 ##	Return to example of AR(1) process
 
 \centering
+\includegraphics[width=\textwidth]{./figures/forecast_uncertainty_example.pdf}
+
+##	Return to example of AR(1) process
+
+\centering
+\includegraphics[height=2.5in]{./figures/example_interaction_effect_norib.pdf}
+
+##	Return to example of AR(1) process
+
+\centering
 \includegraphics[height=2.5in]{./figures/example_interaction_effect.pdf}
 
 #	Conclusions

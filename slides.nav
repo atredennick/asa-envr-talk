@@ -89,17 +89,21 @@
 \headcommand {\beamer@framepages {41}{41}}
 \headcommand {\slideentry {2}{0}{42}{42/42}{}{0}}
 \headcommand {\beamer@framepages {42}{42}}
-\headcommand {\sectionentry {3}{Conclusions}{43}{Conclusions}{0}}
-\headcommand {\beamer@sectionpages {24}{42}}
-\headcommand {\beamer@subsectionpages {24}{42}}
-\headcommand {\slideentry {3}{0}{43}{43/43}{}{0}}
+\headcommand {\slideentry {2}{0}{43}{43/43}{}{0}}
 \headcommand {\beamer@framepages {43}{43}}
-\headcommand {\slideentry {3}{0}{44}{44/44}{}{0}}
+\headcommand {\slideentry {2}{0}{44}{44/44}{}{0}}
 \headcommand {\beamer@framepages {44}{44}}
+\headcommand {\sectionentry {3}{Conclusions}{45}{Conclusions}{0}}
+\headcommand {\beamer@sectionpages {24}{44}}
+\headcommand {\beamer@subsectionpages {24}{44}}
 \headcommand {\slideentry {3}{0}{45}{45/45}{}{0}}
 \headcommand {\beamer@framepages {45}{45}}
-\headcommand {\beamer@partpages {1}{45}}
-\headcommand {\beamer@subsectionpages {43}{45}}
-\headcommand {\beamer@sectionpages {43}{45}}
-\headcommand {\beamer@documentpages {45}}
-\headcommand {\def \inserttotalframenumber {44}}
+\headcommand {\slideentry {3}{0}{46}{46/46}{}{0}}
+\headcommand {\beamer@framepages {46}{46}}
+\headcommand {\slideentry {3}{0}{47}{47/47}{}{0}}
+\headcommand {\beamer@framepages {47}{47}}
+\headcommand {\beamer@partpages {1}{47}}
+\headcommand {\beamer@subsectionpages {45}{47}}
+\headcommand {\beamer@sectionpages {45}{47}}
+\headcommand {\beamer@documentpages {47}}
+\headcommand {\def \inserttotalframenumber {46}}
