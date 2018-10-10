@@ -5,19 +5,34 @@ institute: University of Georgia
 date: October 12, 2018
 ---
 
-##   Collaborators
+## Forecasting
 
-$\phantom{testtestttttt}$ Peter Adler (USU) \hspace{9em} Mevin Hooten (CSU)
+Skillfull forecasts are in high demand because the world is changing fast.
 
-$\phantom{testtest}$ \roundpicture{images/peter.jpg}{} \hspace{5em} \roundpicture{images/mevin.jpg}{}
+1. Responses to global climate change
+2. Species invasions
+3. Emergence and spread of infectious diseases
+
+## Forecasting
+
+Skillfull forecasts are in high demand because the world is changing fast.
+
+1. \alert{Responses to global climate change}
+2. Species invasions
+3. Emergence and spread of infectious diseases
 
 ## Road map
 
 1. Plant population forecasts over large spatial extents
 2. A proposal for partitioning forecast uncertainty 
 
-
 #   Plant population forecasts
+
+##   Collaborators
+
+$\phantom{testtestttttt}$ Peter Adler (USU) \hspace{9em} Mevin Hooten (CSU)
+
+$\phantom{testtest}$ \roundpicture{images/peter.jpg}{} \hspace{5em} \roundpicture{images/mevin.jpg}{}
 
 ##   What land managers want
 
@@ -47,18 +62,6 @@ $\phantom{testtest}$ \roundpicture{images/peter.jpg}{} \hspace{5em} \roundpictur
 \includegraphics[height=2.5in]{./figures/mee_forecast_accuracy.pdf}
 
 \credit{Tredennick et al., 2017, \emph{Methods in Ecol. Evol.}}
-
-##	Forecast horizons
-
-\centering
-\includegraphics[height=2.5in]{./figures/mee_horizons.pdf}
-
-\credit{Tredennick et al., 2017, \emph{Methods in Ecol. Evol.}}
-
-##	Do we need demographic data?
-
-\centering
-Maybe not.
 
 ##   Let's use satellites
 
@@ -208,7 +211,7 @@ z_{t=1} &\sim \text{Normal}(z_0, \sigma^2_{\text{init.}}), \qquad \scriptstyle\t
 
 \begin{equation*}
 \begin{gathered}
-\left[z_{T+1} | y_1,\dots,y_T \right] = \int \int \dots \int \left[z_{T+1} | z_T, \textbf{x}_T, \theta, \sigma^2_{\text{p}} \right] \\ \times \left[z_1,\dots,z_{T+1},\theta, \sigma^2_{\text{p}} | y_1,\dots,y_T \right] d \theta d \sigma^2_{\text{p}} d z_1 \dots d z_T
+\left[z_{T+1} | y_1,\dots,y_T \right] = \int \int \dots \int \left[z_{T+1} | z_T, \textbf{x}_T, \theta, \sigma^2_{\text{p}} \right] \\ \times \left[z_1,\dots,z_{T+1},\theta, \sigma^2_{\text{p}} | y_1,\dots,y_T \right] \alert{d \theta d \sigma^2_{\text{p}} d z_1 \dots d z_T d \textbf{x}_1 \dots d \textbf{x}_T}
 \end{gathered}
 \end{equation*}
 
@@ -244,18 +247,30 @@ z_{T+q}^{(k)} \sim \left[z_{T+q} | g(z_{T+q-1}^{(k)}, \textbf{x}_{T+q}^{(j(k))},
 \end{cases}
 \end{equation*}
 
+##	\emph{Post hoc} partitioning from MCMC samples
+
+| \emph{k} | $z_T$          | $\theta_1$       | $\cdots$  |
+|:--------:|:--------------:|:----------------:|:---------:|
+| 1        | $z_{T}^{(\alert{1})}$ | $\theta_1^{(1)}$ | $\cdots$  |
+| 2        | $z_{T}^{(\alert{2})}$ | $\theta_1^{(2)}$ | $\cdots$  |
+| 3        | $z_{T}^{(\alert{3})}$ | $\theta_1^{(3)}$ | $\cdots$  |
+| 4        | $z_{T}^{(\alert{4})}$ | $\theta_1^{(4)}$ | $\cdots$  |
+| 5        | $z_{T}^{(\alert{5})}$ | $\theta_1^{(5)}$ | $\cdots$  |
+| $\vdots$ | $\vdots$       | $\vdots$         | $\vdots$  |
+| K        | $z_{T}^{(\alert{K})}$ | $\theta_1^{(K)}$ | $\cdots$  |
+
 
 ##	\emph{Post hoc} partitioning from MCMC samples
 
 | \emph{k} | $z_T$          | $\theta_1$       | $\cdots$  |
 |:--------:|:--------------:|:----------------:|:---------:|
-| 1        | $z_{T}^{(\ast)}$ | $\theta_1^{(1)}$ | $\cdots$  |
-| 2        | $z_{T}^{(\ast)}$ | $\theta_1^{(2)}$ | $\cdots$  |
-| 3        | $z_{T}^{(\ast)}$ | $\theta_1^{(3)}$ | $\cdots$  |
-| 4        | $z_{T}^{(\ast)}$ | $\theta_1^{(4)}$ | $\cdots$  |
-| 5        | $z_{T}^{(\ast)}$ | $\theta_1^{(5)}$ | $\cdots$  |
+| 1        | $z_{T}^{(\alert{\ast})}$ | $\theta_1^{(1)}$ | $\cdots$  |
+| 2        | $z_{T}^{(\alert{\ast})}$ | $\theta_1^{(2)}$ | $\cdots$  |
+| 3        | $z_{T}^{(\alert{\ast})}$ | $\theta_1^{(3)}$ | $\cdots$  |
+| 4        | $z_{T}^{(\alert{\ast})}$ | $\theta_1^{(4)}$ | $\cdots$  |
+| 5        | $z_{T}^{(\alert{\ast})}$ | $\theta_1^{(5)}$ | $\cdots$  |
 | $\vdots$ | $\vdots$       | $\vdots$         | $\vdots$  |
-| K        | $z_{T}^{(\ast)}$ | $\theta_1^{(K)}$ | $\cdots$  |
+| K        | $z_{T}^{(\alert{\ast})}$ | $\theta_1^{(K)}$ | $\cdots$  |
 
 ##	\emph{Post hoc} partitioning from MCMC samples
 
@@ -324,14 +339,14 @@ so,
 ##	Return to example of AR(1) process
 
 \centering
-\includegraphics[width=\textwidth]{./figures/forecast_uncertainty_example.pdf}
+\includegraphics[width=\textwidth]{./figures/forecast_uncertainty_example2.pdf}
 
-##	Return to example of AR(1) process
+##	Partitioned forecast variance over time
 
 \centering
 \includegraphics[height=2.5in]{./figures/example_interaction_effect_norib.pdf}
 
-##	Return to example of AR(1) process
+##	Partitioned forecast variance over time
 
 \centering
 \includegraphics[height=2.5in]{./figures/example_interaction_effect.pdf}
@@ -343,4 +358,5 @@ so,
 1. Partition uncertainty to \alert{advance ecological forecasting} -- how do we get better?
 2. Partition uncertainty to \alert{advance scientific progress} -- what don't we know?
 3. Hierarchical Bayesian models ideally suited for partitioning uncertainty because they allow us to fully specify the inclusion of uncertainty.
+4. Proof of concept -- formal treatment in the works.
 

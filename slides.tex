@@ -111,14 +111,42 @@ partition forecast uncertainty}
 \maketitle
 
 \begin{frame}{%
-\protect\hypertarget{collaborators}{%
-Collaborators}}
+\protect\hypertarget{forecasting}{%
+Forecasting}}
 
-\(\phantom{testtestttttt}\) Peter Adler (USU) \hspace{9em} Mevin Hooten
-(CSU)
+Skillfull forecasts are in high demand because the world is changing
+fast.
 
-\(\phantom{testtest}\) \roundpicture{images/peter.jpg}{} \hspace{5em}
-\roundpicture{images/mevin.jpg}{}
+\begin{enumerate}
+[1.]
+\tightlist
+\item
+  Responses to global climate change
+\item
+  Species invasions
+\item
+  Emergence and spread of infectious diseases
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}{%
+\protect\hypertarget{forecasting-1}{%
+Forecasting}}
+
+Skillfull forecasts are in high demand because the world is changing
+fast.
+
+\begin{enumerate}
+[1.]
+\tightlist
+\item
+  \alert{Responses to global climate change}
+\item
+  Species invasions
+\item
+  Emergence and spread of infectious diseases
+\end{enumerate}
 
 \end{frame}
 
@@ -139,6 +167,18 @@ Road map}}
 
 \hypertarget{plant-population-forecasts}{%
 \section{Plant population forecasts}\label{plant-population-forecasts}}
+
+\begin{frame}{%
+\protect\hypertarget{collaborators}{%
+Collaborators}}
+
+\(\phantom{testtestttttt}\) Peter Adler (USU) \hspace{9em} Mevin Hooten
+(CSU)
+
+\(\phantom{testtest}\) \roundpicture{images/peter.jpg}{} \hspace{5em}
+\roundpicture{images/mevin.jpg}{}
+
+\end{frame}
 
 \begin{frame}{%
 \protect\hypertarget{what-land-managers-want}{%
@@ -189,28 +229,6 @@ Free from the tyranny of demographic data!}}
 \includegraphics[height=2.5in]{./figures/mee_forecast_accuracy.pdf}
 
 \credit{Tredennick et al., 2017, \emph{Methods in Ecol. Evol.}}
-
-\end{frame}
-
-\begin{frame}{%
-\protect\hypertarget{forecast-horizons}{%
-Forecast horizons}}
-
-\centering
-
-\includegraphics[height=2.5in]{./figures/mee_horizons.pdf}
-
-\credit{Tredennick et al., 2017, \emph{Methods in Ecol. Evol.}}
-
-\end{frame}
-
-\begin{frame}{%
-\protect\hypertarget{do-we-need-demographic-data-1}{%
-Do we need demographic data?}}
-
-\centering
-
-Maybe not.
 
 \end{frame}
 
@@ -442,7 +460,7 @@ The Forecast distribution}}
 
 \begin{equation*}
 \begin{gathered}
-\left[z_{T+1} | y_1,\dots,y_T \right] = \int \int \dots \int \left[z_{T+1} | z_T, \textbf{x}_T, \theta, \sigma^2_{\text{p}} \right] \\ \times \left[z_1,\dots,z_{T+1},\theta, \sigma^2_{\text{p}} | y_1,\dots,y_T \right] d \theta d \sigma^2_{\text{p}} d z_1 \dots d z_T
+\left[z_{T+1} | y_1,\dots,y_T \right] = \int \int \dots \int \left[z_{T+1} | z_T, \textbf{x}_T, \theta, \sigma^2_{\text{p}} \right] \\ \times \left[z_1,\dots,z_{T+1},\theta, \sigma^2_{\text{p}} | y_1,\dots,y_T \right] \alert{d \theta d \sigma^2_{\text{p}} d z_1 \dots d z_T d \textbf{x}_1 \dots d \textbf{x}_T}
 \end{gathered}
 \end{equation*}
 
@@ -497,13 +515,19 @@ z_{T+q}^{(k)} \sim \left[z_{T+q} | g(z_{T+q-1}^{(k)}, \textbf{x}_{T+q}^{(j(k))},
 \emph{k} & \(z_T\) & \(\theta_1\) & \(\cdots\)\tabularnewline
 \midrule
 \endhead
-1 & \(z_{T}^{(\ast)}\) & \(\theta_1^{(1)}\) & \(\cdots\)\tabularnewline
-2 & \(z_{T}^{(\ast)}\) & \(\theta_1^{(2)}\) & \(\cdots\)\tabularnewline
-3 & \(z_{T}^{(\ast)}\) & \(\theta_1^{(3)}\) & \(\cdots\)\tabularnewline
-4 & \(z_{T}^{(\ast)}\) & \(\theta_1^{(4)}\) & \(\cdots\)\tabularnewline
-5 & \(z_{T}^{(\ast)}\) & \(\theta_1^{(5)}\) & \(\cdots\)\tabularnewline
+1 & \(z_{T}^{(\alert{1})}\) & \(\theta_1^{(1)}\) &
+\(\cdots\)\tabularnewline
+2 & \(z_{T}^{(\alert{2})}\) & \(\theta_1^{(2)}\) &
+\(\cdots\)\tabularnewline
+3 & \(z_{T}^{(\alert{3})}\) & \(\theta_1^{(3)}\) &
+\(\cdots\)\tabularnewline
+4 & \(z_{T}^{(\alert{4})}\) & \(\theta_1^{(4)}\) &
+\(\cdots\)\tabularnewline
+5 & \(z_{T}^{(\alert{5})}\) & \(\theta_1^{(5)}\) &
+\(\cdots\)\tabularnewline
 \(\vdots\) & \(\vdots\) & \(\vdots\) & \(\vdots\)\tabularnewline
-K & \(z_{T}^{(\ast)}\) & \(\theta_1^{(K)}\) & \(\cdots\)\tabularnewline
+K & \(z_{T}^{(\alert{K})}\) & \(\theta_1^{(K)}\) &
+\(\cdots\)\tabularnewline
 \bottomrule
 \end{longtable}
 
@@ -511,6 +535,33 @@ K & \(z_{T}^{(\ast)}\) & \(\theta_1^{(K)}\) & \(\cdots\)\tabularnewline
 
 \begin{frame}{%
 \protect\hypertarget{partitioning-from-mcmc-samples-2}{%
+\emph{Post hoc} partitioning from MCMC samples}}
+
+\begin{longtable}[]{@{}cccc@{}}
+\toprule
+\emph{k} & \(z_T\) & \(\theta_1\) & \(\cdots\)\tabularnewline
+\midrule
+\endhead
+1 & \(z_{T}^{(\alert{\ast})}\) & \(\theta_1^{(1)}\) &
+\(\cdots\)\tabularnewline
+2 & \(z_{T}^{(\alert{\ast})}\) & \(\theta_1^{(2)}\) &
+\(\cdots\)\tabularnewline
+3 & \(z_{T}^{(\alert{\ast})}\) & \(\theta_1^{(3)}\) &
+\(\cdots\)\tabularnewline
+4 & \(z_{T}^{(\alert{\ast})}\) & \(\theta_1^{(4)}\) &
+\(\cdots\)\tabularnewline
+5 & \(z_{T}^{(\alert{\ast})}\) & \(\theta_1^{(5)}\) &
+\(\cdots\)\tabularnewline
+\(\vdots\) & \(\vdots\) & \(\vdots\) & \(\vdots\)\tabularnewline
+K & \(z_{T}^{(\alert{\ast})}\) & \(\theta_1^{(K)}\) &
+\(\cdots\)\tabularnewline
+\bottomrule
+\end{longtable}
+
+\end{frame}
+
+\begin{frame}{%
+\protect\hypertarget{partitioning-from-mcmc-samples-3}{%
 \emph{Post hoc} partitioning from MCMC samples}}
 
 \begin{align*}
@@ -521,7 +572,7 @@ K & \(z_{T}^{(\ast)}\) & \(\theta_1^{(K)}\) & \(\cdots\)\tabularnewline
 \end{frame}
 
 \begin{frame}{%
-\protect\hypertarget{partitioning-from-mcmc-samples-3}{%
+\protect\hypertarget{partitioning-from-mcmc-samples-4}{%
 \emph{Post hoc} partitioning from MCMC samples}}
 
 \begin{align*}
@@ -532,7 +583,7 @@ K & \(z_{T}^{(\ast)}\) & \(\theta_1^{(K)}\) & \(\cdots\)\tabularnewline
 \end{frame}
 
 \begin{frame}{%
-\protect\hypertarget{partitioning-from-mcmc-samples-4}{%
+\protect\hypertarget{partitioning-from-mcmc-samples-5}{%
 \emph{Post hoc} partitioning from MCMC samples}}
 
 \begin{align*}
@@ -544,7 +595,7 @@ V^{(I)} &= \text{var}(\textbf{Z}^{(I)})
 \end{frame}
 
 \begin{frame}{%
-\protect\hypertarget{partitioning-from-mcmc-samples-5}{%
+\protect\hypertarget{partitioning-from-mcmc-samples-6}{%
 \emph{Post hoc} partitioning from MCMC samples}}
 
 \begin{longtable}[]{@{}ll@{}}
@@ -633,13 +684,13 @@ Return to example of AR(1) process}}
 
 \centering
 
-\includegraphics[width=\textwidth]{./figures/forecast_uncertainty_example.pdf}
+\includegraphics[width=\textwidth]{./figures/forecast_uncertainty_example2.pdf}
 
 \end{frame}
 
 \begin{frame}{%
-\protect\hypertarget{return-to-example-of-ar1-process-1}{%
-Return to example of AR(1) process}}
+\protect\hypertarget{partitioned-forecast-variance-over-time}{%
+Partitioned forecast variance over time}}
 
 \centering
 
@@ -648,8 +699,8 @@ Return to example of AR(1) process}}
 \end{frame}
 
 \begin{frame}{%
-\protect\hypertarget{return-to-example-of-ar1-process-2}{%
-Return to example of AR(1) process}}
+\protect\hypertarget{partitioned-forecast-variance-over-time-1}{%
+Partitioned forecast variance over time}}
 
 \centering
 
@@ -677,6 +728,8 @@ Conclusions}}
   Hierarchical Bayesian models ideally suited for partitioning
   uncertainty because they allow us to fully specify the inclusion of
   uncertainty.
+\item
+  Proof of concept – formal treatment in the works.
 \end{enumerate}
 
 \end{frame}

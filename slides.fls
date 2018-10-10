@@ -447,6 +447,7 @@ INPUT slides.nav
 INPUT slides.nav
 INPUT background.png
 INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/ccicons/ccicons.tfm
+INPUT background.png
 INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
 INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
 INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
@@ -470,13 +471,11 @@ INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm1
 INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT images/peter.jpg
 INPUT images/mevin.jpg
-INPUT background.png
 INPUT ./figures/managers_want.pdf
 INPUT ./figures/managers_get.pdf
 INPUT ./figures/chart_measuring.jpg
 INPUT ./figures/mee_forecast_accuracy_empty.pdf
 INPUT ./figures/mee_forecast_accuracy.pdf
-INPUT ./figures/mee_horizons.pdf
 INPUT ./figures/landsat8.jpg
 INPUT ./figures/sage_pic.pdf
 INPUT ./figures/studyarea_map.png
@@ -507,7 +506,7 @@ INPUT ./figures/clim_change_mean_spatial.pdf
 INPUT ./figures/temporal_forecasts_presentation.pdf
 INPUT background.png
 INPUT ./figures/forecast_uncertainty_example.pdf
-INPUT ./figures/forecast_uncertainty_example.pdf
+INPUT ./figures/forecast_uncertainty_example2.pdf
 INPUT ./figures/example_interaction_effect_norib.pdf
 INPUT ./figures/example_interaction_effect.pdf
 INPUT background.png

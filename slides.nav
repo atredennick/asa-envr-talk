@@ -5,11 +5,11 @@
 \headcommand {\beamer@framepages {2}{2}}
 \headcommand {\slideentry {0}{0}{3}{3/3}{}{0}}
 \headcommand {\beamer@framepages {3}{3}}
-\headcommand {\sectionentry {1}{Plant population forecasts}{4}{Plant population forecasts}{0}}
-\headcommand {\beamer@sectionpages {1}{3}}
-\headcommand {\beamer@subsectionpages {1}{3}}
-\headcommand {\slideentry {1}{0}{4}{4/4}{}{0}}
+\headcommand {\slideentry {0}{0}{4}{4/4}{}{0}}
 \headcommand {\beamer@framepages {4}{4}}
+\headcommand {\sectionentry {1}{Plant population forecasts}{5}{Plant population forecasts}{0}}
+\headcommand {\beamer@sectionpages {1}{4}}
+\headcommand {\beamer@subsectionpages {1}{4}}
 \headcommand {\slideentry {1}{0}{5}{5/5}{}{0}}
 \headcommand {\beamer@framepages {5}{5}}
 \headcommand {\slideentry {1}{0}{6}{6/6}{}{0}}
@@ -49,8 +49,8 @@
 \headcommand {\slideentry {1}{0}{23}{23/23}{}{0}}
 \headcommand {\beamer@framepages {23}{23}}
 \headcommand {\sectionentry {2}{Partitioning forecast uncertainty}{24}{Partitioning forecast uncertainty}{0}}
-\headcommand {\beamer@sectionpages {4}{23}}
-\headcommand {\beamer@subsectionpages {4}{23}}
+\headcommand {\beamer@sectionpages {5}{23}}
+\headcommand {\beamer@subsectionpages {5}{23}}
 \headcommand {\slideentry {2}{0}{24}{24/24}{}{0}}
 \headcommand {\beamer@framepages {24}{24}}
 \headcommand {\slideentry {2}{0}{25}{25/25}{}{0}}
@@ -93,17 +93,19 @@
 \headcommand {\beamer@framepages {43}{43}}
 \headcommand {\slideentry {2}{0}{44}{44/44}{}{0}}
 \headcommand {\beamer@framepages {44}{44}}
-\headcommand {\sectionentry {3}{Conclusions}{45}{Conclusions}{0}}
-\headcommand {\beamer@sectionpages {24}{44}}
-\headcommand {\beamer@subsectionpages {24}{44}}
-\headcommand {\slideentry {3}{0}{45}{45/45}{}{0}}
+\headcommand {\slideentry {2}{0}{45}{45/45}{}{0}}
 \headcommand {\beamer@framepages {45}{45}}
+\headcommand {\sectionentry {3}{Conclusions}{46}{Conclusions}{0}}
+\headcommand {\beamer@sectionpages {24}{45}}
+\headcommand {\beamer@subsectionpages {24}{45}}
 \headcommand {\slideentry {3}{0}{46}{46/46}{}{0}}
 \headcommand {\beamer@framepages {46}{46}}
 \headcommand {\slideentry {3}{0}{47}{47/47}{}{0}}
 \headcommand {\beamer@framepages {47}{47}}
-\headcommand {\beamer@partpages {1}{47}}
-\headcommand {\beamer@subsectionpages {45}{47}}
-\headcommand {\beamer@sectionpages {45}{47}}
-\headcommand {\beamer@documentpages {47}}
-\headcommand {\def \inserttotalframenumber {46}}
+\headcommand {\slideentry {3}{0}{48}{48/48}{}{0}}
+\headcommand {\beamer@framepages {48}{48}}
+\headcommand {\beamer@partpages {1}{48}}
+\headcommand {\beamer@subsectionpages {46}{48}}
+\headcommand {\beamer@sectionpages {46}{48}}
+\headcommand {\beamer@documentpages {48}}
+\headcommand {\def \inserttotalframenumber {47}}
