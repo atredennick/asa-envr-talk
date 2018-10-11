@@ -21,10 +21,10 @@ Skillfull forecasts are in high demand because the world is changing fast.
 2. Species invasions
 3. Emergence and spread of infectious diseases
 
-## Road map
+<!-- ## Road map
 
 1. Plant population forecasts over large spatial extents
-2. A proposal for partitioning forecast uncertainty 
+2. A proposal for partitioning forecast uncertainty  -->
 
 #   Plant population forecasts
 
@@ -266,7 +266,7 @@ z_{T+q}^{(k)} \sim \left[z_{T+q} | g(z_{T+q-1}^{(k)}, \textbf{x}_{T+q}^{(j(k))},
 \end{cases}
 \end{equation*}
 
-##	\emph{Post hoc} partitioning from MCMC samples
+<!-- ##	\emph{Post hoc} partitioning from MCMC samples
 
 | \emph{k} | $z_T$          | $\theta_1$       | $\cdots$  |
 |:--------:|:--------------:|:----------------:|:---------:|
@@ -289,7 +289,7 @@ z_{T+q}^{(k)} \sim \left[z_{T+q} | g(z_{T+q-1}^{(k)}, \textbf{x}_{T+q}^{(j(k))},
 | 4        | $z_{T}^{(\alert{\ast})}$ | $\theta_1^{(4)}$ | $\cdots$  |
 | 5        | $z_{T}^{(\alert{\ast})}$ | $\theta_1^{(5)}$ | $\cdots$  |
 | $\vdots$ | $\vdots$       | $\vdots$         | $\vdots$  |
-| K        | $z_{T}^{(\alert{\ast})}$ | $\theta_1^{(K)}$ | $\cdots$  |
+| K        | $z_{T}^{(\alert{\ast})}$ | $\theta_1^{(K)}$ | $\cdots$  | -->
 
 ##	\emph{Post hoc} partitioning from MCMC samples
 

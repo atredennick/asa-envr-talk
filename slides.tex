@@ -150,21 +150,6 @@ fast.
 
 \end{frame}
 
-\begin{frame}{%
-\protect\hypertarget{road-map}{%
-Road map}}
-
-\begin{enumerate}
-[1.]
-\tightlist
-\item
-  Plant population forecasts over large spatial extents
-\item
-  A proposal for partitioning forecast uncertainty
-\end{enumerate}
-
-\end{frame}
-
 \hypertarget{plant-population-forecasts}{%
 \section{Plant population forecasts}\label{plant-population-forecasts}}
 
@@ -538,60 +523,6 @@ z_{T+q}^{(k)} \sim \left[z_{T+q} | g(z_{T+q-1}^{(k)}, \textbf{x}_{T+q}^{(j(k))},
 \protect\hypertarget{partitioning-from-mcmc-samples-1}{%
 \emph{Post hoc} partitioning from MCMC samples}}
 
-\begin{longtable}[]{@{}cccc@{}}
-\toprule
-\emph{k} & \(z_T\) & \(\theta_1\) & \(\cdots\)\tabularnewline
-\midrule
-\endhead
-1 & \(z_{T}^{(\alert{1})}\) & \(\theta_1^{(1)}\) &
-\(\cdots\)\tabularnewline
-2 & \(z_{T}^{(\alert{2})}\) & \(\theta_1^{(2)}\) &
-\(\cdots\)\tabularnewline
-3 & \(z_{T}^{(\alert{3})}\) & \(\theta_1^{(3)}\) &
-\(\cdots\)\tabularnewline
-4 & \(z_{T}^{(\alert{4})}\) & \(\theta_1^{(4)}\) &
-\(\cdots\)\tabularnewline
-5 & \(z_{T}^{(\alert{5})}\) & \(\theta_1^{(5)}\) &
-\(\cdots\)\tabularnewline
-\(\vdots\) & \(\vdots\) & \(\vdots\) & \(\vdots\)\tabularnewline
-K & \(z_{T}^{(\alert{K})}\) & \(\theta_1^{(K)}\) &
-\(\cdots\)\tabularnewline
-\bottomrule
-\end{longtable}
-
-\end{frame}
-
-\begin{frame}{%
-\protect\hypertarget{partitioning-from-mcmc-samples-2}{%
-\emph{Post hoc} partitioning from MCMC samples}}
-
-\begin{longtable}[]{@{}cccc@{}}
-\toprule
-\emph{k} & \(z_T\) & \(\theta_1\) & \(\cdots\)\tabularnewline
-\midrule
-\endhead
-1 & \(z_{T}^{(\alert{\ast})}\) & \(\theta_1^{(1)}\) &
-\(\cdots\)\tabularnewline
-2 & \(z_{T}^{(\alert{\ast})}\) & \(\theta_1^{(2)}\) &
-\(\cdots\)\tabularnewline
-3 & \(z_{T}^{(\alert{\ast})}\) & \(\theta_1^{(3)}\) &
-\(\cdots\)\tabularnewline
-4 & \(z_{T}^{(\alert{\ast})}\) & \(\theta_1^{(4)}\) &
-\(\cdots\)\tabularnewline
-5 & \(z_{T}^{(\alert{\ast})}\) & \(\theta_1^{(5)}\) &
-\(\cdots\)\tabularnewline
-\(\vdots\) & \(\vdots\) & \(\vdots\) & \(\vdots\)\tabularnewline
-K & \(z_{T}^{(\alert{\ast})}\) & \(\theta_1^{(K)}\) &
-\(\cdots\)\tabularnewline
-\bottomrule
-\end{longtable}
-
-\end{frame}
-
-\begin{frame}{%
-\protect\hypertarget{partitioning-from-mcmc-samples-3}{%
-\emph{Post hoc} partitioning from MCMC samples}}
-
 \begin{align*}
 \textbf{Z}^{(I)} &= \textbf{Z}^{(I,\overline{PA},\overline{D},\overline{PS})} \\
 \textbf{Z}^{(I)} &\approx \left[z_{T+q} \; | \; g(z_{T+q-1}^{(k)}, \textbf{x}^{(\ast)}_T, \boldmath{\theta}^{(\ast)}), 0 \right] \\
@@ -600,7 +531,7 @@ K & \(z_{T}^{(\alert{\ast})}\) & \(\theta_1^{(K)}\) &
 \end{frame}
 
 \begin{frame}{%
-\protect\hypertarget{partitioning-from-mcmc-samples-4}{%
+\protect\hypertarget{partitioning-from-mcmc-samples-2}{%
 \emph{Post hoc} partitioning from MCMC samples}}
 
 \begin{align*}
@@ -611,7 +542,7 @@ K & \(z_{T}^{(\alert{\ast})}\) & \(\theta_1^{(K)}\) &
 \end{frame}
 
 \begin{frame}{%
-\protect\hypertarget{partitioning-from-mcmc-samples-5}{%
+\protect\hypertarget{partitioning-from-mcmc-samples-3}{%
 \emph{Post hoc} partitioning from MCMC samples}}
 
 \begin{align*}
@@ -623,7 +554,7 @@ V^{(I)} &= \text{var}(\textbf{Z}^{(I)})
 \end{frame}
 
 \begin{frame}{%
-\protect\hypertarget{partitioning-from-mcmc-samples-6}{%
+\protect\hypertarget{partitioning-from-mcmc-samples-4}{%
 \emph{Post hoc} partitioning from MCMC samples}}
 
 \begin{longtable}[]{@{}ll@{}}
