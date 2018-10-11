@@ -499,6 +499,7 @@ INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm1
 INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmssbx10.tfm
 INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmmib10.tfm
 INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
+INPUT ./figures/ipm_climate_effects.pdf
 INPUT ./figures/post_climate_covariates.pdf
 INPUT ./figures/obs_predict_spatial_pres.pdf
 INPUT ./figures/clim_change_mean_spatial_empty.pdf

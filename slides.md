@@ -106,6 +106,10 @@ y_{i,t} &\sim \text{Poisson}(\mu_{i,t}) \\
 \alpha_{m} &\sim \text{Normal}(0,\sigma_{\eta}^2)
 \end{align*}
 
+##	Climate covariates
+
+\centering
+\includegraphics[width=\textwidth]{./figures/ipm_climate_effects.pdf}
 
 ##	Climate effects
 
@@ -149,18 +153,18 @@ Forecast of state $z$ at $t+1$ from function $q$: $q = f(z_t, x_t, \theta, \vare
 \small
 
 \begin{align*}
-Var[y_{t+1}] \approx \underbrace{\left(\frac{\delta q}{\delta y} \right)^2}_{\text{stability}} 
-               \underbrace{\vphantom{ \left(\frac{\delta q}{\delta y} \right)^2 } Var[y_t]}_{\text{IC uncert.}} +
+\text{var}[y_{t+1}] \approx \underbrace{\left(\frac{\delta q}{\delta y} \right)^2}_{\text{stability}} 
+               \underbrace{\vphantom{ \left(\frac{\delta q}{\delta y} \right)^2 } \text{var}[y_t]}_{\text{IC uncert.}} +
                \underbrace{\vphantom{ \left(\frac{\delta q}{\delta y} \right)^2 }\left(\frac{\delta f}{\delta x} \right)^2}_{\text{driver sens.}} 
-               \underbrace{\vphantom{ \left(\frac{\delta q}{\delta y} \right)^2 } Var[x_t]}_{\text{driver uncert.}} +
+               \underbrace{\vphantom{ \left(\frac{\delta q}{\delta y} \right)^2 } \text{var}[x_t]}_{\text{driver uncert.}} +
                \underbrace{\vphantom{ \left(\frac{\delta q}{\delta y} \right)^2 }\left(\frac{\delta f}{\delta \theta} \right)^2}_{\text{param sens.}}
-               \underbrace{\vphantom{ \left(\frac{\delta q}{\delta y} \right)^2 } Var[\theta]}_{\text{param. uncert.}} +
-               \underbrace{\vphantom{ \left(\frac{\delta q}{\delta y} \right)^2 } Var[\varepsilon_{t+1}]}_{\text{process error}}
+               \underbrace{\vphantom{ \left(\frac{\delta q}{\delta y} \right)^2 } \text{var}[\theta]}_{\text{param. uncert.}} +
+               \underbrace{\vphantom{ \left(\frac{\delta q}{\delta y} \right)^2 } \text{var}[\varepsilon_{t+1}]}_{\text{process error}}
 \end{align*}
 
 \credit{Dietze, 2017, \emph{Ecological Applications}}
 
-## An \emph{inverse} error propagation problem
+## Error propagation
 
 For some function $q$: $q = f(x_1,x_2,\dots,x_n)$
 
@@ -171,7 +175,7 @@ For some function $q$: $q = f(x_1,x_2,\dots,x_n)$
 
 \credit{Ku, 1966, \emph{J. Res. National Bureau of Standards - C}}
 
-## An \emph{inverse} error propagation problem
+## Error propagation
 
 \begin{align*}
 \sigma^2_q &= \underbrace{\sum^n_{i=1}\left( \frac{\delta q}{\delta x_i} \sigma_{x_i} \right)^2}_{\text{variances}} + \alert{\underbrace{\sum^n_{i=1} \sum^n_{j(j \ne i)} 2 \sigma_{ij}\left( \frac{\delta q}{\delta x_i} \right)\left( \frac{\delta q}{\delta x_j} \right)}_{\text{covariances}}}
@@ -180,7 +184,7 @@ For some function $q$: $q = f(x_1,x_2,\dots,x_n)$
 \credit{Ku, 1966, \emph{J. Res. National Bureau of Standards - C}}
 
 
-##   Interaction (covariances) cannot be ignored
+##   Can we ignore covariances?
 
 \begin{align*}
 z_{t+1} &= z_{t} \beta_0 + x_t \beta_1 + \varepsilon_{t+1}, \\
@@ -193,6 +197,21 @@ z_{t=1} &\sim \text{Normal}(z_0, \sigma^2_{\text{init.}}), \qquad \scriptstyle\t
 
 \centering
 \includegraphics[width=\textwidth]{./figures/forecast_uncertainty_example.pdf}
+
+##	An \emph{inverse} error propogation problem
+
+\small
+
+\begin{align*}
+\text{var}[y_{t+1}] \approx \underbrace{\left(\frac{\delta q}{\delta y} \right)^2}_{\text{stability}} 
+               \underbrace{\vphantom{ \left(\frac{\delta q}{\delta y} \right)^2 } \text{var}[y_t]}_{\text{IC uncert.}} +
+               \underbrace{\vphantom{ \left(\frac{\delta q}{\delta y} \right)^2 }\left(\frac{\delta f}{\delta x} \right)^2}_{\text{driver sens.}} 
+               \underbrace{\vphantom{ \left(\frac{\delta q}{\delta y} \right)^2 } \text{var}[x_t]}_{\text{driver uncert.}} +
+               \underbrace{\vphantom{ \left(\frac{\delta q}{\delta y} \right)^2 }\left(\frac{\delta f}{\delta \theta} \right)^2}_{\text{param sens.}}
+               \underbrace{\vphantom{ \left(\frac{\delta q}{\delta y} \right)^2 } \text{var}[\theta]}_{\text{param. uncert.}} +
+               \underbrace{\vphantom{ \left(\frac{\delta q}{\delta y} \right)^2 } \text{var}[\varepsilon_{t+1}]}_{\text{process error}}
+\end{align*}
+
 
 ##	Hierarchical Bayesian models propagate uncertainty for us
 

@@ -307,6 +307,16 @@ y_{i,t} &\sim \text{Poisson}(\mu_{i,t}) \\
 \end{frame}
 
 \begin{frame}{%
+\protect\hypertarget{climate-covariates}{%
+Climate covariates}}
+
+\centering
+
+\includegraphics[width=\textwidth]{./figures/ipm_climate_effects.pdf}
+
+\end{frame}
+
+\begin{frame}{%
 \protect\hypertarget{climate-effects}{%
 Climate effects}}
 
@@ -374,13 +384,13 @@ Forecast of state \(z\) at \(t+1\) from function \(q\):
 \small
 
 \begin{align*}
-Var[y_{t+1}] \approx \underbrace{\left(\frac{\delta q}{\delta y} \right)^2}_{\text{stability}} 
-               \underbrace{\vphantom{ \left(\frac{\delta q}{\delta y} \right)^2 } Var[y_t]}_{\text{IC uncert.}} +
+\text{var}[y_{t+1}] \approx \underbrace{\left(\frac{\delta q}{\delta y} \right)^2}_{\text{stability}} 
+               \underbrace{\vphantom{ \left(\frac{\delta q}{\delta y} \right)^2 } \text{var}[y_t]}_{\text{IC uncert.}} +
                \underbrace{\vphantom{ \left(\frac{\delta q}{\delta y} \right)^2 }\left(\frac{\delta f}{\delta x} \right)^2}_{\text{driver sens.}} 
-               \underbrace{\vphantom{ \left(\frac{\delta q}{\delta y} \right)^2 } Var[x_t]}_{\text{driver uncert.}} +
+               \underbrace{\vphantom{ \left(\frac{\delta q}{\delta y} \right)^2 } \text{var}[x_t]}_{\text{driver uncert.}} +
                \underbrace{\vphantom{ \left(\frac{\delta q}{\delta y} \right)^2 }\left(\frac{\delta f}{\delta \theta} \right)^2}_{\text{param sens.}}
-               \underbrace{\vphantom{ \left(\frac{\delta q}{\delta y} \right)^2 } Var[\theta]}_{\text{param. uncert.}} +
-               \underbrace{\vphantom{ \left(\frac{\delta q}{\delta y} \right)^2 } Var[\varepsilon_{t+1}]}_{\text{process error}}
+               \underbrace{\vphantom{ \left(\frac{\delta q}{\delta y} \right)^2 } \text{var}[\theta]}_{\text{param. uncert.}} +
+               \underbrace{\vphantom{ \left(\frac{\delta q}{\delta y} \right)^2 } \text{var}[\varepsilon_{t+1}]}_{\text{process error}}
 \end{align*}
 
 \credit{Dietze, 2017, \emph{Ecological Applications}}
@@ -388,8 +398,8 @@ Var[y_{t+1}] \approx \underbrace{\left(\frac{\delta q}{\delta y} \right)^2}_{\te
 \end{frame}
 
 \begin{frame}{%
-\protect\hypertarget{an-error-propagation-problem}{%
-An \emph{inverse} error propagation problem}}
+\protect\hypertarget{error-propagation}{%
+Error propagation}}
 
 For some function \(q\): \(q = f(x_1,x_2,\dots,x_n)\)
 
@@ -403,8 +413,8 @@ For some function \(q\): \(q = f(x_1,x_2,\dots,x_n)\)
 \end{frame}
 
 \begin{frame}{%
-\protect\hypertarget{an-error-propagation-problem-1}{%
-An \emph{inverse} error propagation problem}}
+\protect\hypertarget{error-propagation-1}{%
+Error propagation}}
 
 \begin{align*}
 \sigma^2_q &= \underbrace{\sum^n_{i=1}\left( \frac{\delta q}{\delta x_i} \sigma_{x_i} \right)^2}_{\text{variances}} + \alert{\underbrace{\sum^n_{i=1} \sum^n_{j(j \ne i)} 2 \sigma_{ij}\left( \frac{\delta q}{\delta x_i} \right)\left( \frac{\delta q}{\delta x_j} \right)}_{\text{covariances}}}
@@ -415,8 +425,8 @@ An \emph{inverse} error propagation problem}}
 \end{frame}
 
 \begin{frame}{%
-\protect\hypertarget{interaction-covariances-cannot-be-ignored}{%
-Interaction (covariances) cannot be ignored}}
+\protect\hypertarget{can-we-ignore-covariances}{%
+Can we ignore covariances?}}
 
 \begin{align*}
 z_{t+1} &= z_{t} \beta_0 + x_t \beta_1 + \varepsilon_{t+1}, \\
@@ -428,12 +438,30 @@ z_{t=1} &\sim \text{Normal}(z_0, \sigma^2_{\text{init.}}), \qquad \scriptstyle\t
 \end{frame}
 
 \begin{frame}{%
-\protect\hypertarget{interaction-covariances-cannot-be-ignored-1}{%
+\protect\hypertarget{interaction-covariances-cannot-be-ignored}{%
 Interaction (covariances) cannot be ignored}}
 
 \centering
 
 \includegraphics[width=\textwidth]{./figures/forecast_uncertainty_example.pdf}
+
+\end{frame}
+
+\begin{frame}{%
+\protect\hypertarget{an-error-propogation-problem}{%
+An \emph{inverse} error propogation problem}}
+
+\small
+
+\begin{align*}
+\text{var}[y_{t+1}] \approx \underbrace{\left(\frac{\delta q}{\delta y} \right)^2}_{\text{stability}} 
+               \underbrace{\vphantom{ \left(\frac{\delta q}{\delta y} \right)^2 } \text{var}[y_t]}_{\text{IC uncert.}} +
+               \underbrace{\vphantom{ \left(\frac{\delta q}{\delta y} \right)^2 }\left(\frac{\delta f}{\delta x} \right)^2}_{\text{driver sens.}} 
+               \underbrace{\vphantom{ \left(\frac{\delta q}{\delta y} \right)^2 } \text{var}[x_t]}_{\text{driver uncert.}} +
+               \underbrace{\vphantom{ \left(\frac{\delta q}{\delta y} \right)^2 }\left(\frac{\delta f}{\delta \theta} \right)^2}_{\text{param sens.}}
+               \underbrace{\vphantom{ \left(\frac{\delta q}{\delta y} \right)^2 } \text{var}[\theta]}_{\text{param. uncert.}} +
+               \underbrace{\vphantom{ \left(\frac{\delta q}{\delta y} \right)^2 } \text{var}[\varepsilon_{t+1}]}_{\text{process error}}
+\end{align*}
 
 \end{frame}
 
