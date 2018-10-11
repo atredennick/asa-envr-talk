@@ -291,26 +291,22 @@ z_{T+q}^{(k)} \sim \left[z_{T+q} | g(z_{T+q-1}^{(k)}, \textbf{x}_{T+q}^{(j(k))},
 | $\vdots$ | $\vdots$       | $\vdots$         | $\vdots$  |
 | K        | $z_{T}^{(\alert{\ast})}$ | $\theta_1^{(K)}$ | $\cdots$  | -->
 
+
 ##	\emph{Post hoc} partitioning from MCMC samples
 
+\bf{ONLY initial conditions uncertainty}
+
 \begin{align*}
-\textbf{Z}^{(I)} &= \textbf{Z}^{(I,\overline{PA},\overline{D},\overline{PS})} \\
-\textbf{Z}^{(I)} &\approx \left[z_{T+q} \; | \; g(z_{T+q-1}^{(k)}, \textbf{x}^{(\ast)}_T, \boldmath{\theta}^{(\ast)}), 0 \right] \\
+\textbf{z}^{(I)}_{T+q} &= \textbf{z}_{T+q}^{(I,\overline{PA},\overline{D},\overline{PS})} \\
+\textbf{z}^{(I)}_{T+q} &\approx \left[z_{T+q} \; | \; g(z_{T+q-1}^{(k)}, \alert{\textbf{x}^{(\ast)}_T, \boldmath{\theta}^{(\ast)}}), \alert{0} \right]
 \end{align*}
 
 ##	\emph{Post hoc} partitioning from MCMC samples
 
 \begin{align*}
-\textbf{Z}^{(I)} &= \textbf{Z}^{(I,\overline{PA},\overline{D},\overline{PS})} \\
-\textbf{Z}^{(I)} &\approx \left[z_{T+q} \; | \; g(z_{T+q-1}^{(k)}, \alert{\textbf{x}^{(\ast)}_T, \boldmath{\theta}^{(\ast)}}), \alert{0} \right]
-\end{align*}
-
-##	\emph{Post hoc} partitioning from MCMC samples
-
-\begin{align*}
-\textbf{Z}^{(I)} &= \textbf{Z}^{(I,\overline{PA},\overline{D},\overline{PS})} \\
-\textbf{Z}^{(I)} &\approx \left[z_{T+q} \; | \; g(z_{T+q-1}^{(k)}, \alert{\textbf{x}^{(\ast)}_T, \boldmath{\theta}^{(\ast)}}), \alert{0} \right] \\
-V^{(I)} &= \text{var}(\textbf{Z}^{(I)})
+\textbf{z}^{(I)}_{T+q} &= \textbf{z}_{T+q}^{(I,\overline{PA},\overline{D},\overline{PS})} \\
+\textbf{z}^{(I)}_{T+q} &\approx \left[z_{T+q} \; | \; g(z_{T+q-1}^{(k)}, \alert{\textbf{x}^{(\ast)}_T, \boldmath{\theta}^{(\ast)}}), \alert{0} \right] \\
+V^{(I)}_{T+q} &= \text{var}(\textbf{z}^{(I)}_{T+q})
 \end{align*}
 
 ##	\emph{Post hoc} partitioning from MCMC samples
